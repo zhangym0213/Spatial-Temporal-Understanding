@@ -56,6 +56,28 @@
             display: inline-block;
             margin-right: 5px;
         }
+        .demo-video-section {
+            margin-top: 40px;
+        }
+        .demo-video-section h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .demo-video-section p {
+            font-size: 1em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .video-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* 视频之间的间距 */
+        }
+        .video-container video {
+            border-radius: 10px; /* 视频边角圆滑 */
+            width: 300px; /* 视频宽度 */
+            height: auto; /* 视频高度自动调整 */
+        }
     </style>
 </head>
 <body>
@@ -78,6 +100,27 @@
                         <span class="icon"><i class="fas fa-database"></i></span> Dataset
                     </a>
                 </span>
+            </div>
+        </div>
+    </section>
+
+    <section class="demo-video-section">
+        <div class="container">
+            <h2>Demo Videos</h2>
+            <p>
+                Here we demonstrate several videos of our datasets, annotated with ground truth object poses (as axes) and scales (as bounding boxes). 
+                Detailed data samples are illustrated in the following section.
+            </p>
+            <div class="video-container">
+                <video autoplay muted loop>
+                    <source src="assets/videos/demo1.mp4" type="video/mp4">
+                </video>
+                <video autoplay muted loop>
+                    <source src="assets/videos/demo2.mp4" type="video/mp4">
+                </video>
+                <video autoplay muted loop>
+                    <source src="assets/videos/demo3.mp4" type="video/mp4">
+                </video>
             </div>
         </div>
     </section>
