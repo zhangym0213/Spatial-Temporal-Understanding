@@ -175,31 +175,56 @@
               </video>
           </div>
           <div class="text-column">
-              <h2>Instructions</h2>
-              <p>
-                  This section contains a quiz video and instructions for participants. Please watch the video carefully and follow the instructions provided.
-              </p>
-              <p>
-                  The quiz is designed to test your understanding of the material presented in the video. Please answer the questions to the best of your ability.
-              </p>
-          </div>
+            <h2>Instructions</h2>
+            <div class="tabs">
+                <button class="tab-button" onclick="openTab(event, 'tab1')">Tab 1</button>
+                <button class="tab-button" onclick="openTab(event, 'tab2')">Tab 2</button>
+                <button class="tab-button" onclick="openTab(event, 'tab3')">Tab 3</button>
+                <button class="tab-button" onclick="openTab(event, 'tab4')">Tab 4</button>
+            </div>
+            <div class="tab-content" id="tab1">Content for Tab 1.</div>
+            <div class="tab-content" id="tab2" style="display:none;">Content for Tab 2.</div>
+            <div class="tab-content" id="tab3" style="display:none;">Content for Tab 3.</div>
+            <div class="tab-content" id="tab4" style="display:none;">Content for Tab 4.</div>
+        </div>
     </section>
-
     <script>
-      const video = document.getElementById("quiz-video");
-      const instructionText = document.getElementById("instruction-text");
-
-      video.addEventListener("timeupdate", () => {
-          if (video.currentTime < 10) {
-              instructionText.innerHTML = "Introduction: Watch the video carefully.";
-          } else if (video.currentTime < 20) {
-              instructionText.innerHTML = "Key Point 1: Pay attention to the object movements.";
-          } else if (video.currentTime < 30) {
-              instructionText.innerHTML = "Key Point 2: Notice the background changes.";
-          } else {
-              instructionText.innerHTML = "Final Thought: Prepare to answer the quiz questions.";
+      function openTab(evt, tabName) {
+          let i, tabcontent, tabbuttons;
+          tabcontent = document.getElementsByClassName("tab-content");
+          for (i = 0; i < tabcontent.length; i++) {
+              tabcontent[i].style.display = "none";
           }
-      });
+          tabbuttons = document.getElementsByClassName("tab-button");
+          for (i = 0; i < tabbuttons.length; i++) {
+              tabbuttons[i].classList.remove("active");
+          }
+          document.getElementById(tabName).style.display = "block";
+          evt.currentTarget.classList.add("active");
+      }
   </script>
+  
+  <style>
+      .tabs {
+          display: flex;
+          margin-bottom: 10px;
+      }
+      .tab-button {
+          background-color: #ddd;
+          border: none;
+          padding: 10px;
+          cursor: pointer;
+          flex: 1;
+      }
+      .tab-button.active {
+          background-color: #aaa;
+      }
+      .tab-content {
+          background: white;
+          padding: 10px;
+          border: 1px solid #ccc;
+      }
+  </style>
+  
 </body>
 </html>
