@@ -226,15 +226,7 @@
   </section>
   
   <script>
-    let isManualSwitch = false; // Flag to track if the user manually switched tabs
-
-    function showTab(index, isManual = false) {
-        if (isManual) {
-            isManualSwitch = true; // Set the flag if the user manually switches tabs
-        } else if (isManualSwitch) {
-            return; // Don't switch tabs automatically if the user has manually intervened
-        }
-
+    function showTab(index) {
         const contents = ["Content for Tab 1", "Content for Tab 2", "Content for Tab 3", "Content for Tab 4"];
         document.getElementById("tab-content").innerHTML = `<p>${contents[index]}</p>`;
         document.querySelectorAll(".tab-button").forEach((btn, i) => {
@@ -242,30 +234,43 @@
         });
     }
 
-    document.getElementById("quiz-video").addEventListener("timeupdate", function() {
-        const video = this;
-        const t2 = 5; // Set actual time (seconds)
-        const t3 = 10;
-        const t4 = 15;
+    // 定义时间点
+    const t1 = 0; // 替换为实际时间（秒）
+    const t2 = 5;
+    const t3 = 10;
+    const t4 = 15;
 
-        if (video.currentTime >= t4) {
-            showTab(3);
-        } else if (video.currentTime >= t3) {
-            showTab(2);
-        } else if (video.currentTime >= t2) {
-            showTab(1);
-        } else {
-            showTab(0);
-        }
+    // 获取视频元素
+    const video = document.getElementById("quiz-video");
+
+    // 获取所有 Tab 按钮
+    const tabButtons = document.querySelectorAll(".tab-button");
+
+    // 为每个 Tab 按钮添加点击事件监听器
+    tabButtons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+            // 根据点击的 Tab 跳转到对应的时间点
+            switch (index) {
+                case 0:
+                    video.currentTime = t1;
+                    break;
+                case 1:
+                    video.currentTime = t2;
+                    break;
+                case 2:
+                    video.currentTime = t3;
+                    break;
+                case 3:
+                    video.currentTime = t4;
+                    break;
+            }
+            // 显示对应的 Tab 内容
+            showTab(index);
+        });
     });
 
-    // Reset the manual switch flag if the video is restarted or seeked back to the beginning
-    document.getElementById("quiz-video").addEventListener("seeked", function() {
-        if (this.currentTime < t2) {
-            isManualSwitch = false;
-            showTab(0);
-        }
-    });
+    // 初始化显示第一个 Tab 的内容
+    showTab(0);
 </script>
   
 </body>
