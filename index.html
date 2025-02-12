@@ -208,7 +208,7 @@
     <section class="quiz-section">
       <div class="video-column">
           <h2>Quiz</h2>
-          <video controls autoplay muted loop>
+          <video id="quiz-video" controls autoplay muted loop>
               <source src="assets/videos/demo1.mp4" type="video/mp4">
           </video>
       </div>
@@ -233,6 +233,23 @@
               btn.classList.toggle("active", i === index);
           });
       }
+  
+      document.getElementById("quiz-video").addEventListener("timeupdate", function() {
+          const video = this;
+          if (video.currentTime >= t4) {
+              showTab(3);
+          } else if (video.currentTime >= t3) {
+              showTab(2);
+          } else if (video.currentTime >= t2) {
+              showTab(1);
+          } else {
+              showTab(0);
+          }
+      });
+  
+      const t2 = 5; // 替换为实际时间（秒）
+      const t3 = 10;
+      const t4 = 15;
   </script>
   
 </body>
