@@ -84,50 +84,32 @@
             color: orange; /* 改为橙色 */
         }
         .quiz-section {
-          background-color: #ffffff; 
-          padding: 40px 100px; 
-          display: flex;
-          justify-content: space-between;
-          align-items: stretch; /* 使左右两边的高度对齐 */
-          gap: 20px;
+            background-color: #ffffff; /* 设置背景颜色为白色 */
+            padding: 40px 100px; /* 增加上下和左右间距 */
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px; /* 调整左右间距 */
         }
-
         .quiz-section .video-column {
-          flex: 3;
-          display: flex;
-          flex-direction: column; /* 确保视频和标题垂直排列 */
+            flex: 3; /* 左边栏占3份 */
         }
-
         .quiz-section .text-column {
-          flex: 2;
-          display: flex;
-          flex-direction: column; /* 确保 Tab 和内容垂直排列 */
+            flex: 2; /* 右边栏占2份 */
         }
-
-        .quiz-section .tab-content-container {
-          flex: 1; /* 允许容器自适应高度 */
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
+        .quiz-section h2 {
+            font-size: 1.8em; /* 增大字体大小 */
+            margin-bottom: 10px;
         }
-
-        .quiz-section .tab-content {
-          flex: 1; /* 确保内容占满剩余空间 */
+        .quiz-section p {
+            font-size: 1em;
+            color: #333;
+            margin-bottom: 20px;
         }
-
         .quiz-section video {
-          border-radius: 8px;
-          width: 100%;
-          height: auto;
-          flex: 1; /* 允许视频高度自适应 */
-        }
-
-        /* 新增样式规则，确保 Tab 和视频顶部对齐 */
-        .quiz-section .tabs {
-          border-bottom: 2px solid #ddd;
-          padding: 0;
-          margin-top: 10px;
-          flex-shrink: 0; /* 防止 Tab 被压缩 */
+            border-radius: 8px; /* 设置视频的圆角为8px */
+            width: 100%; /* 视频宽度占满整个左边栏 */
+            height: auto; /* 视频高度自动调整 */
         }
         .tabs {
         display: flex;
@@ -288,34 +270,32 @@
 
     <section class="quiz-section">
       <div class="video-column">
-        <h2>Quiz</h2>
-        <video id="quiz-video" controls autoplay muted loop>
-          <source src="assets/videos/demo1.mp4" type="video/mp4">
-        </video>
+          <h2>Quiz</h2>
+          <video id="quiz-video" controls autoplay muted loop>
+              <source src="assets/videos/demo1.mp4" type="video/mp4">
+          </video>
       </div>
       <div class="text-column">
-        <div class="tab-content-container">
           <div class="tabs">
-            <button class="tab-button active" onclick="showTab(0)"><i class="fas fa-rocket"></i> Velocity </button>
-            <button class="tab-button" onclick="showTab(1)"><i class="fas fa-ruler"></i> Distance </button>
-            <button class="tab-button" onclick="showTab(2)"><i class="fa-solid fa-route"></i> Route </button>
-            <button class="tab-button" onclick="showTab(3)"><i class="fa-regular fa-compass"></i> Direction </button>
+              <button class="tab-button active" onclick="showTab(0)"><i class="fas fa-rocket"></i> Velocity </button>
+              <button class="tab-button" onclick="showTab(1)"><i class="fas fa-ruler"></i> Distance </button>
+              <button class="tab-button" onclick="showTab(2)"><i class="fa-solid fa-route"></i> Route </button>
+              <button class="tab-button" onclick="showTab(3)"><i class="fa-regular fa-compass"></i> Direction </button>
           </div>
           <div class="tab-content" id="tab-content">
-            <!-- 默认显示第一个 Tab 的内容 -->
-            <div class="quiz-question">
-              <p>What is the velocity of the object?</p>
-              <ul class="quiz-options">
-                <li><button onclick="checkAnswer(0, 0)">10 m/s</button></li>
-                <li><button onclick="checkAnswer(0, 1)">20 m/s</button></li>
-                <li><button onclick="checkAnswer(0, 2)">30 m/s</button></li>
-              </ul>
-              <p id="quiz-feedback-0" class="quiz-feedback"></p>
-            </div>
+              <!-- 默认显示第一个 Tab 的内容 -->
+              <div class="quiz-question">
+                  <p>What is the velocity of the object?</p>
+                  <ul class="quiz-options">
+                      <li><button onclick="checkAnswer(0, 0)">10 m/s</button></li>
+                      <li><button onclick="checkAnswer(0, 1)">20 m/s</button></li>
+                      <li><button onclick="checkAnswer(0, 2)">30 m/s</button></li>
+                  </ul>
+                  <p id="quiz-feedback-0" class="quiz-feedback"></p>
+              </div>
           </div>
-        </div>
       </div>
-    </section>
+  </section>
   
   <script>
     // 定义问题和答案
