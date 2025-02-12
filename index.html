@@ -149,6 +149,35 @@
             height: 4px;
             background-color: #FFA500;
         }
+        .quiz-question {
+            margin-top: 20px;
+        }
+
+        .quiz-options {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .quiz-options li {
+            margin: 10px 0;
+        }
+
+        .quiz-options button {
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .quiz-options button:hover {
+            background-color: #ddd;
+        }
+
+        .quiz-feedback {
+            margin-top: 10px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -217,21 +246,81 @@
               <button class="tab-button active" onclick="showTab(0)"><i class="fas fa-rocket"></i> Velocity </button>
               <button class="tab-button" onclick="showTab(1)"><i class="fas fa-ruler"></i> Distance </button>
               <button class="tab-button" onclick="showTab(2)"><i class="fa-solid fa-route"></i> Route </button>
-              <button class="tab-button" onclick="showTab(3)"><i class="fa-regular fa-compass"></i> Direction </button>
+              <button class="tab-button" onclick="showTab(3)"><i class="fa-solid fa-angle"></i> Direction </button>
           </div>
           <div class="tab-content" id="tab-content">
-              <p>Content for Tab 1</p>
+              <!-- 默认显示第一个 Tab 的内容 -->
+              <div class="quiz-question">
+                  <p>What is the velocity of the object?</p>
+                  <ul class="quiz-options">
+                      <li><button onclick="checkAnswer(0, 0)">10 m/s</button></li>
+                      <li><button onclick="checkAnswer(0, 1)">20 m/s</button></li>
+                      <li><button onclick="checkAnswer(0, 2)">30 m/s</button></li>
+                  </ul>
+                  <p id="quiz-feedback-0" class="quiz-feedback"></p>
+              </div>
           </div>
       </div>
   </section>
   
   <script>
+    // 定义问题和答案
+    const questions = [
+        {
+            question: "What is the velocity of the object?",
+            options: ["10 m/s", "20 m/s", "30 m/s"],
+            correctAnswer: 1 // 正确答案的索引
+        },
+        {
+            question: "What is the distance traveled?",
+            options: ["50 m", "100 m", "150 m"],
+            correctAnswer: 2
+        },
+        {
+            question: "What is the route taken?",
+            options: ["Route A", "Route B", "Route C"],
+            correctAnswer: 0
+        },
+        {
+            question: "What is the direction of movement?",
+            options: ["North", "South", "East"],
+            correctAnswer: 2
+        }
+    ];
+
+    // 显示 Tab 内容
     function showTab(index) {
-        const contents = ["Content for Tab 1", "Content for Tab 2", "Content for Tab 3", "Content for Tab 4"];
-        document.getElementById("tab-content").innerHTML = `<p>${contents[index]}</p>`;
+        const question = questions[index];
+        const optionsHTML = question.options.map((option, i) => `
+            <li><button onclick="checkAnswer(${index}, ${i})">${option}</button></li>
+        `).join("");
+
+        document.getElementById("tab-content").innerHTML = `
+            <div class="quiz-question">
+                <p>${question.question}</p>
+                <ul class="quiz-options">${optionsHTML}</ul>
+                <p id="quiz-feedback-${index}" class="quiz-feedback"></p>
+            </div>
+        `;
+
+        // 更新 Tab 按钮的激活状态
         document.querySelectorAll(".tab-button").forEach((btn, i) => {
             btn.classList.toggle("active", i === index);
         });
+    }
+
+    // 检查答案
+    function checkAnswer(questionIndex, selectedIndex) {
+        const question = questions[questionIndex];
+        const feedbackElement = document.getElementById(`quiz-feedback-${questionIndex}`);
+
+        if (selectedIndex === question.correctAnswer) {
+            feedbackElement.textContent = "Correct! 🎉";
+            feedbackElement.style.color = "green";
+        } else {
+            feedbackElement.textContent = `Incorrect! The correct answer is: ${question.options[question.correctAnswer]}`;
+            feedbackElement.style.color = "red";
+        }
     }
 
     // 定义时间点
