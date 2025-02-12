@@ -111,8 +111,10 @@
             width: 100%; /* 视频宽度占满整个左边栏 */
             height: auto; /* 视频高度自动调整 */
         }
-        display: flex;
+        .tabs {
+            display: flex;
             border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
         }
         .tab-button {
             flex: 1;
@@ -136,7 +138,6 @@
         .tab-button.active {
             color: #FFA500;
             border-bottom: 4px solid #FFA500;
-            margin-bottom: -2px; /* 使选中 tab 的橙色下划线紧贴灰色底线 */
         }
         .tab-content {
             padding: 20px;
@@ -203,13 +204,12 @@
 
     <section class="quiz-section">
       <div class="video-column">
-          <h2>Quiz Video</h2>
+          <h2>Quiz</h2>
           <video controls autoplay muted loop>
               <source src="assets/videos/demo1.mp4" type="video/mp4">
           </video>
       </div>
       <div class="text-column">
-          <h2>Instructions</h2>
           <div class="tabs">
               <button class="tab-button active" onclick="showTab(0)"><i class="fas fa-clipboard"></i> Tab 1</button>
               <button class="tab-button" onclick="showTab(1)"><i class="fas fa-book"></i> Tab 2</button>
