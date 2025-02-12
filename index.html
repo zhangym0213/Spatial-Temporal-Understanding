@@ -150,28 +150,31 @@
             background-color: #FFA500;
         }
         /* 设置问题字体为圆体，并调整大小 */
-        .quiz-question p {
-            font-family: "Comic Sans MS", "Comic Sans", cursive; /* 圆体字体 */
-            font-size: 24px; /* 问题字体大小 */
-            font-weight: bold;
-            margin-bottom: 20px;
+        /* 居中问题和选项 */
+        .quiz-question {
+            text-align: center;
+            margin-top: 20px;
         }
 
-        /* 设置选项样式 */
         .quiz-options {
             list-style-type: none;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .quiz-options li {
             margin: 10px 0;
+            width: 100%;
+            max-width: 300px; /* 控制最大宽度 */
         }
 
+        /* 选项按钮样式 */
         .quiz-options button {
             display: flex;
             align-items: center;
-            width: 100%; /* 统一宽度 */
-            max-width: 300px; /* 控制最大宽度 */
+            width: 100%;
             padding: 15px;
             background-color: #f0f0f0;
             border: 1px solid #ccc;
@@ -187,15 +190,9 @@
 
         /* 选项字母标签样式 */
         .option-label {
-            display: inline-block;
-            width: 30px; /* 统一字母标签宽度 */
             font-weight: bold;
             color: #333;
-        }
-
-        /* 选项文本样式 */
-        .option-text {
-            flex: 1;
+            margin-right: 10px;
         }
 
         /* 反馈信息样式 */
@@ -203,7 +200,9 @@
             margin-top: 20px;
             font-size: 20px;
             font-weight: bold;
+            text-align: center;
         }
+
     </style>
 </head>
 <body>
@@ -295,22 +294,26 @@
         {
             question: "What is the velocity of the object?",
             options: ["10 m/s", "20 m/s", "30 m/s"],
-            correctAnswer: 1 // 正确答案的索引
+            correctAnswer: 1, // 正确答案的索引
+            GroundTruth: "The velocity is determined by the speed and direction of the object."
         },
         {
             question: "What is the distance traveled?",
             options: ["50 m", "100 m", "150 m"],
-            correctAnswer: 2
+            correctAnswer: 2,
+            GroundTruth: "The distance is calculated based on the path taken by the object."
         },
         {
             question: "What is the route taken?",
             options: ["Route A", "Route B", "Route C"],
-            correctAnswer: 0
+            correctAnswer: 0,
+            GroundTruth: "The route is determined by the starting and ending points."
         },
         {
             question: "What is the direction of movement?",
             options: ["North", "South", "East"],
-            correctAnswer: 2
+            correctAnswer: 2,
+            GroundTruth: "The direction is indicated by the compass bearing."
         }
     ];
 
@@ -346,11 +349,16 @@
         const feedbackElement = document.getElementById(`quiz-feedback-${questionIndex}`);
 
         if (selectedIndex === question.correctAnswer) {
-            feedbackElement.textContent = "Correct! 🎉";
-            feedbackElement.style.color = "green";
+            feedbackElement.innerHTML = `
+                <span style="color: green;">Correct! 🎉</span><br>
+                <span>${question.GroundTruth}</span>
+            `;
         } else {
-            feedbackElement.textContent = `Incorrect! The correct answer is: ${String.fromCharCode(65 + question.correctAnswer)}. ${question.options[question.correctAnswer]}`;
-            feedbackElement.style.color = "red";
+            feedbackElement.innerHTML = `
+                <span style="color: red;">Incorrect!</span><br>
+                <span>The correct answer is: ${String.fromCharCode(65 + question.correctAnswer)}. ${question.options[question.correctAnswer]}</span><br>
+                <span>${question.GroundTruth}</span>
+            `;
         }
     }
 
