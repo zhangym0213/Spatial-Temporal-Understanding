@@ -159,18 +159,17 @@
             margin-bottom: 20px;
         }
 
-        /* 设置选项样式 */
         .quiz-options {
             list-style-type: none;
             padding: 0;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-end; /* 右对齐 */
         }
 
         .quiz-options li {
             margin: 10px 0;
-            width: 100%;
+            display: flex;
             max-width: 300px; /* 控制最大宽度 */
         }
 
@@ -178,7 +177,7 @@
         .quiz-options button {
             display: flex;
             align-items: center;
-            width: 100%;
+            width: auto; /* 自适应宽度 */
             padding: 15px;
             background-color: #f0f0f0;
             border: 1px solid #ccc;
