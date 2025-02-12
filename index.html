@@ -111,15 +111,22 @@
             width: 100%; /* 视频宽度占满整个左边栏 */
             height: auto; /* 视频高度自动调整 */
         }
+        .tabs {
+            display: flex;
+            border-radius: 8px;
+            overflow: hidden;
+        }
         .tab-button {
             flex: 1;
-            padding: 10px;
+            padding: 12px 20px;
             text-align: center;
             background-color: #FFDAB9;
             border: none;
             cursor: pointer;
             transition: background 0.3s;
             border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
         }
         .tab-button.active {
             background-color: #FFA07A;
