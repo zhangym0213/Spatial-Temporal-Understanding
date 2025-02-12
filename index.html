@@ -57,11 +57,9 @@
             margin-right: 5px;
         }
         .demo-video-section {
-            margin-top: 40px;
-            padding-left: 100px; /* 增加左边距 */
-            padding-right: 100px; /* 增加右边距 */
             background-color: #ffffff; /* 设置背景颜色为白色 */
-            padding: 40px 0; /* 增加上下间距 */
+            padding: 40px 100px; /* 增加上下和左右间距 */
+            margin-top: 40px; /* 与上一个部分的间距 */
         }
         .demo-video-section h2 {
             font-size: 1.5em;
@@ -78,7 +76,7 @@
             gap: 10px; /* 视频之间的间距 */
         }
         .video-container video {
-            border-radius: 5px; /* 视频边角圆滑 */
+            border-radius: 8px; /* 视频边角圆滑 */
             width: 400px; /* 视频宽度 */
             height: auto; /* 视频高度自动调整 */
         }
@@ -143,8 +141,7 @@
         <div class="container">
             <h2>Demo Videos</h2>
             <p>
-                Here we demonstrate several videos of our datasets, annotated with ground truth object poses (as axes) and scales (as bounding boxes). 
-                Detailed data samples are illustrated in the following section.
+                Here we demonstrate several videos of our datasets.
             </p>
             <div class="video-container">
                 <video controls autoplay muted loop>
