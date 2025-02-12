@@ -149,10 +149,15 @@
             height: 4px;
             background-color: #FFA500;
         }
-        .quiz-question {
-            margin-top: 20px;
+        /* 设置问题字体为圆体，并调整大小 */
+        .quiz-question p {
+            font-family: "Comic Sans MS", "Comic Sans", cursive; /* 圆体字体 */
+            font-size: 24px; /* 问题字体大小 */
+            font-weight: bold;
+            margin-bottom: 20px;
         }
 
+        /* 设置选项样式 */
         .quiz-options {
             list-style-type: none;
             padding: 0;
@@ -163,19 +168,40 @@
         }
 
         .quiz-options button {
-            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            width: 100%; /* 统一宽度 */
+            max-width: 300px; /* 控制最大宽度 */
+            padding: 15px;
             background-color: #f0f0f0;
             border: 1px solid #ccc;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 20px; /* 选项字体大小 */
+            text-align: left;
         }
 
         .quiz-options button:hover {
             background-color: #ddd;
         }
 
+        /* 选项字母标签样式 */
+        .option-label {
+            display: inline-block;
+            width: 30px; /* 统一字母标签宽度 */
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* 选项文本样式 */
+        .option-text {
+            flex: 1;
+        }
+
+        /* 反馈信息样式 */
         .quiz-feedback {
-            margin-top: 10px;
+            margin-top: 20px;
+            font-size: 20px;
             font-weight: bold;
         }
     </style>
@@ -292,7 +318,12 @@
     function showTab(index) {
         const question = questions[index];
         const optionsHTML = question.options.map((option, i) => `
-            <li><button onclick="checkAnswer(${index}, ${i})">${option}</button></li>
+            <li>
+                <button onclick="checkAnswer(${index}, ${i})">
+                    <span class="option-label">${String.fromCharCode(65 + i)}</span>
+                    <span class="option-text">${option}</span>
+                </button>
+            </li>
         `).join("");
 
         document.getElementById("tab-content").innerHTML = `
@@ -318,7 +349,7 @@
             feedbackElement.textContent = "Correct! 🎉";
             feedbackElement.style.color = "green";
         } else {
-            feedbackElement.textContent = `Incorrect! The correct answer is: ${question.options[question.correctAnswer]}`;
+            feedbackElement.textContent = `Incorrect! The correct answer is: ${String.fromCharCode(65 + question.correctAnswer)}. ${question.options[question.correctAnswer]}`;
             feedbackElement.style.color = "red";
         }
     }
