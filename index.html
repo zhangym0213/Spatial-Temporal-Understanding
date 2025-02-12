@@ -59,9 +59,10 @@
         .demo-video-section {
             background-color: #ffffff; /* 设置背景颜色为白色 */
             padding: 40px 100px; /* 增加上下和左右间距 */
+            margin-top: 40px; /* 与上一个部分的间距 */
         }
         .demo-video-section h2 {
-            font-size: 1.5em;
+            font-size: 1.8em; /* 增大字体大小 */
             margin-bottom: 10px;
         }
         .demo-video-section p {
@@ -77,10 +78,53 @@
         .video-container video {
             border-radius: 8px; /* 视频边角圆滑 */
             width: 400px; /* 视频宽度 */
-            height: auto; /* 视频高度自动调整 */
+            height: 225px; /* 视频高度，保持16:9比例 */
         }
         .title .highlight {
             color: orange; /* 改为橙色 */
+        }
+        .github-link {
+            margin-top: 20px;
+        }
+        .github-link a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+            background-color: #333333;
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        .github-link a:hover {
+            background-color: #555555;
+        }
+        .github-link i {
+            margin-right: 5px;
+        }
+        .quiz-section {
+            background-color: #ffffff; /* 设置背景颜色为白色 */
+            padding: 40px 100px; /* 增加上下和左右间距 */
+            margin-top: 40px; /* 与上一个部分的间距 */
+            display: flex;
+            justify-content: space-between;
+        }
+        .quiz-section .video-column {
+            width: 75%; /* 左边栏占3/4 */
+        }
+        .quiz-section .text-column {
+            width: 25%; /* 右边栏占1/4 */
+            padding-left: 20px; /* 增加左边距 */
+        }
+        .quiz-section h2 {
+            font-size: 1.8em; /* 增大字体大小 */
+            margin-bottom: 10px;
+        }
+        .quiz-section p {
+            font-size: 1em;
+            color: #333;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -104,12 +148,14 @@
                         <span class="icon"><i class="fas fa-database"></i></span> Dataset
                     </a>
                 </span>
-                <span class="link-block">
-                    <a href="https://github.com/IranQin/MP5" target="_blank">
-                      <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
-                  
-                  </a>
-                </span>
+            </div>
+            <div class="github-link">
+                <a href="https://github.com/IranQin/MP5" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                </a>
             </div>
         </div>
     </section>
@@ -130,6 +176,23 @@
                 <video controls autoplay muted loop>
                     <source src="assets/videos/demo3.mp4" type="video/mp4">
                 </video>
+            </div>
+        </div>
+    </section>
+
+    <section class="quiz-section">
+        <div class="container">
+            <div class="video-column">
+                <h2>Quiz Video</h2>
+                <video controls autoplay muted loop>
+                    <source src="assets/videos/quiz.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="text-column">
+                <h2>Quiz Instructions</h2>
+                <p>
+                    This section contains a quiz video and instructions for participants. Please watch the video carefully and follow the instructions provided.
+                </p>
             </div>
         </div>
     </section>
