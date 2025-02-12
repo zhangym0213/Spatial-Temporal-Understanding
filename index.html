@@ -197,7 +197,8 @@
             font-weight: bold;
             color: #333;
             margin-right: 10px;
-            width: auto; /* 宽度与内容一致 */
+            width: auto; /* 自适应宽度 */
+            white-space: nowrap; /* 防止换行 */
         }
 
         /* 反馈信息样式 */
@@ -207,7 +208,11 @@
             font-weight: bold;
             text-align: center;
         }
-
+        
+        /* 新增样式规则，针对 route 和 direction 问题 */
+        .quiz-feedback.hide-groundtruth span:nth-child(2) {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -297,13 +302,13 @@
     // 定义问题和答案
     const questions = [
         {
-            question: "What is the velocity of the object?",
+            question: "What is the velocity of the object when t=0s ?",
             options: ["10 m/s", "20 m/s", "30 m/s"],
             correctAnswer: 1, // 正确答案的索引
             GroundTruth: "The GroundTruth is 19.2m/s."
         },
         {
-            question: "What is the distance traveled?",
+            question: "What is the distance traveled from t=0s to t=1s?",
             options: ["50 m", "100 m", "150 m"],
             correctAnswer: 2,
             GroundTruth: "The GroundTruth is 152m."
@@ -312,13 +317,15 @@
             question: "What is the route taken?",
             options: ["Route A", "Route B", "Route C"],
             correctAnswer: 0,
-            GroundTruth: "The correct answer is Route A."
+            GroundTruth: "The correct answer is Route A.",
+            isRouteOrDirection: true // 添加标识符
         },
         {
             question: "What is the direction of movement?",
             options: ["North", "South", "East"],
             correctAnswer: 2,
-            GroundTruth: "The correct answer is East."
+            GroundTruth: "The correct answer is East.",
+            isRouteOrDirection: true // 添加标识符
         }
     ];
 
@@ -349,21 +356,30 @@
     }
 
     // 检查答案
+    // 检查答案
     function checkAnswer(questionIndex, selectedIndex) {
         const question = questions[questionIndex];
         const feedbackElement = document.getElementById(`quiz-feedback-${questionIndex}`);
 
+        let feedbackContent = "";
         if (selectedIndex === question.correctAnswer) {
-            feedbackElement.innerHTML = `
-                <span style="color: green;">Correct! 🎉</span><br>
-                <span>${question.GroundTruth}</span>
-            `;
+            feedbackContent = "<span style='color: green;'> Correct! 🎉</span>";
+            // 如果是 route 或 direction 的问题，隐藏 GroundTruth
+            if (question.isRouteOrDirection) {
+                feedbackElement.classList.add("hide-groundtruth");
+            } else {
+                feedbackElement.classList.remove("hide-groundtruth");
+                feedbackContent += `<br><span>${question.GroundTruth}</span>`;
+            }
         } else {
-            feedbackElement.innerHTML = `
-                <span style="color: red;">Incorrect!</span><br>
+            feedbackElement.classList.remove("hide-groundtruth");
+            feedbackContent = `
+                <span style='color: red;'> Incorrect!</span><br>
                 <span>${question.GroundTruth}</span>
             `;
         }
+
+        feedbackElement.innerHTML = feedbackContent;
     }
 
     // 定义时间点
