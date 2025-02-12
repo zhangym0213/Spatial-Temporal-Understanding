@@ -175,7 +175,7 @@
               </video>
           </div>
           <div class="text-column">
-              <h2>Quiz Instructions</h2>
+              <h2>Instructions</h2>
               <p>
                   This section contains a quiz video and instructions for participants. Please watch the video carefully and follow the instructions provided.
               </p>
@@ -184,5 +184,22 @@
               </p>
           </div>
     </section>
+
+    <script>
+      const video = document.getElementById("quiz-video");
+      const instructionText = document.getElementById("instruction-text");
+
+      video.addEventListener("timeupdate", () => {
+          if (video.currentTime < 10) {
+              instructionText.innerHTML = "Introduction: Watch the video carefully.";
+          } else if (video.currentTime < 20) {
+              instructionText.innerHTML = "Key Point 1: Pay attention to the object movements.";
+          } else if (video.currentTime < 30) {
+              instructionText.innerHTML = "Key Point 2: Notice the background changes.";
+          } else {
+              instructionText.innerHTML = "Final Thought: Prepare to answer the quiz questions.";
+          }
+      });
+  </script>
 </body>
 </html>
