@@ -226,31 +226,39 @@
   </section>
   
   <script>
-      function showTab(index) {
-          const contents = ["Content for Tab 1", "Content for Tab 2", "Content for Tab 3", "Content for Tab 4"];
-          document.getElementById("tab-content").innerHTML = `<p>${contents[index]}</p>`;
-          document.querySelectorAll(".tab-button").forEach((btn, i) => {
-              btn.classList.toggle("active", i === index);
-          });
-      }
-  
-      document.getElementById("quiz-video").addEventListener("timeupdate", function() {
-          const video = this;
-          if (video.currentTime >= t4) {
-              showTab(3);
-          } else if (video.currentTime >= t3) {
-              showTab(2);
-          } else if (video.currentTime >= t2) {
-              showTab(1);
-          } else {
-              showTab(0);
-          }
-      });
-  
-      const t2 = 5; // 替换为实际时间（秒）
-      const t3 = 10;
-      const t4 = 15;
-  </script>
+    let autoSwitch = true; // A flag to control automatic tab switching
+
+    function showTab(index) {
+        // When the user clicks a tab, disable auto-switching
+        autoSwitch = false;
+
+        const contents = ["Content for Tab 1", "Content for Tab 2", "Content for Tab 3", "Content for Tab 4"];
+        document.getElementById("tab-content").innerHTML = `<p>${contents[index]}</p>`;
+        document.querySelectorAll(".tab-button").forEach((btn, i) => {
+            btn.classList.toggle("active", i === index);
+        });
+    }
+
+    document.getElementById("quiz-video").addEventListener("timeupdate", function() {
+        if (!autoSwitch) return; // Don't switch tabs automatically if the flag is false
+
+        const video = this;
+        if (video.currentTime >= t4) {
+            showTab(3);
+        } else if (video.currentTime >= t3) {
+            showTab(2);
+        } else if (video.currentTime >= t2) {
+            showTab(1);
+        } else {
+            showTab(0);
+        }
+    });
+
+    const t2 = 5; // Set actual time (seconds)
+    const t3 = 10;
+    const t4 = 15;
+</script>
+
   
 </body>
 </html>
