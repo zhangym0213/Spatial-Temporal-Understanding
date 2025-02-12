@@ -111,10 +111,8 @@
             width: 100%; /* 视频宽度占满整个左边栏 */
             height: auto; /* 视频高度自动调整 */
         }
-        .tabs {
-            display: flex;
+        display: flex;
             border-bottom: 2px solid #ddd;
-            padding-bottom: 5px;
         }
         .tab-button {
             flex: 1;
@@ -138,6 +136,7 @@
         .tab-button.active {
             color: #FFA500;
             border-bottom: 4px solid #FFA500;
+            margin-bottom: -2px; /* 使选中 tab 的橙色下划线紧贴灰色底线 */
         }
         .tab-content {
             padding: 20px;
