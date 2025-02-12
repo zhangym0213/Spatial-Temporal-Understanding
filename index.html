@@ -226,7 +226,15 @@
   </section>
   
   <script>
-    function showTab(index) {
+    let isManualSwitch = false; // Flag to track if the user manually switched tabs
+
+    function showTab(index, isManual = false) {
+        if (isManual) {
+            isManualSwitch = true; // Set the flag if the user manually switches tabs
+        } else if (isManualSwitch) {
+            return; // Don't switch tabs automatically if the user has manually intervened
+        }
+
         const contents = ["Content for Tab 1", "Content for Tab 2", "Content for Tab 3", "Content for Tab 4"];
         document.getElementById("tab-content").innerHTML = `<p>${contents[index]}</p>`;
         document.querySelectorAll(".tab-button").forEach((btn, i) => {
@@ -236,6 +244,10 @@
 
     document.getElementById("quiz-video").addEventListener("timeupdate", function() {
         const video = this;
+        const t2 = 5; // Set actual time (seconds)
+        const t3 = 10;
+        const t4 = 15;
+
         if (video.currentTime >= t4) {
             showTab(3);
         } else if (video.currentTime >= t3) {
@@ -247,9 +259,13 @@
         }
     });
 
-    const t2 = 5; // 替换为实际时间（秒）
-    const t3 = 10;
-    const t4 = 15;
+    // Reset the manual switch flag if the video is restarted or seeked back to the beginning
+    document.getElementById("quiz-video").addEventListener("seeked", function() {
+        if (this.currentTime < t2) {
+            isManualSwitch = false;
+            showTab(0);
+        }
+    });
 </script>
   
 </body>
