@@ -151,11 +151,15 @@
         }
         /* 设置问题字体为圆体，并调整大小 */
         /* 居中问题和选项 */
-        .quiz-question {
+        .quiz-question p {
+            font-family: "Georgia", serif; /* 更换为好看的字体 */
+            font-size: 28px; /* 加大字体 */
+            font-weight: bold; /* 加粗 */
             text-align: center;
-            margin-top: 20px;
+            margin-bottom: 20px;
         }
 
+        /* 设置选项样式 */
         .quiz-options {
             list-style-type: none;
             padding: 0;
@@ -193,6 +197,7 @@
             font-weight: bold;
             color: #333;
             margin-right: 10px;
+            width: auto; /* 宽度与内容一致 */
         }
 
         /* 反馈信息样式 */
@@ -295,19 +300,19 @@
             question: "What is the velocity of the object?",
             options: ["10 m/s", "20 m/s", "30 m/s"],
             correctAnswer: 1, // 正确答案的索引
-            GroundTruth: "The velocity is determined by the speed and direction of the object."
+            GroundTruth: "The GroundTruth is 19.2m/s."
         },
         {
             question: "What is the distance traveled?",
             options: ["50 m", "100 m", "150 m"],
             correctAnswer: 2,
-            GroundTruth: "The distance is calculated based on the path taken by the object."
+            GroundTruth: "The GroundTruth is 152m."
         },
         {
             question: "What is the route taken?",
             options: ["Route A", "Route B", "Route C"],
             correctAnswer: 0,
-            GroundTruth: "The route is determined by the starting and ending points."
+            GroundTruth: "The GroundTruth is 19.2m/s."
         },
         {
             question: "What is the direction of movement?",
@@ -356,7 +361,6 @@
         } else {
             feedbackElement.innerHTML = `
                 <span style="color: red;">Incorrect!</span><br>
-                <span>The correct answer is: ${String.fromCharCode(65 + question.correctAnswer)}. ${question.options[question.correctAnswer]}</span><br>
                 <span>${question.GroundTruth}</span>
             `;
         }
