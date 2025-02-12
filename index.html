@@ -243,6 +243,10 @@
         if (!autoSwitch) return; // Don't switch tabs automatically if the flag is false
 
         const video = this;
+        const t2 = 5; // Set actual time (seconds)
+        const t3 = 10;
+        const t4 = 15;
+
         if (video.currentTime >= t4) {
             showTab(3);
         } else if (video.currentTime >= t3) {
@@ -254,11 +258,14 @@
         }
     });
 
-    const t2 = 5; // Set actual time (seconds)
-    const t3 = 10;
-    const t4 = 15;
+    // Optional: Reset autoSwitch flag when the video restarts
+    document.getElementById("quiz-video").addEventListener("seeked", function() {
+        if (this.currentTime < t2) {
+            autoSwitch = true;
+            showTab(0);
+        }
+    });
 </script>
-
   
 </body>
 </html>
