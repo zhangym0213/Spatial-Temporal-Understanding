@@ -173,7 +173,9 @@
             width: 100%; /* Ensure image container takes full width */
             text-align: center; /* Center-align images */
         }
-
+        .image-column {
+            flex: 1; /* 每个列占一半宽度 */
+        }
         /* Full-width images */
         .full-width-image {
             width: 100%; /* Make images full-width */
@@ -544,13 +546,17 @@
         </div>
     </section>
 
-    <!-- Results Section -->
+   <!-- Results Section -->
     <section class="results-section">
         <div class="container">
             <h2>Results</h2>
             <div class="image-container">
-                <img src="assets/images/results.jpg" alt="Results" class="full-width-image">
-                <img src="assets/images/radar.jpg" alt="Radar" class="full-width-image">
+                <div class="image-column">
+                    <img src="assets/images/results.jpg" alt="Results" class="full-width-image">
+                </div>
+                <div class="image-column">
+                    <img src="assets/images/radar.jpg" alt="Radar" class="full-width-image">
+                </div>
             </div>
             <p>Here is the results information.</p>
         </div>
