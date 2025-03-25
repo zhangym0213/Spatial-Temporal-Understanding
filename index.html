@@ -57,6 +57,20 @@
             display: inline-block;
             margin-right: 5px;
         }
+        /* Logo Section Styles */
+        .logo-section {
+            background-color: #ffffff;
+            padding: 20px 0;
+            text-align: center; /* Center-align the image */
+        }
+
+        .logo-image {
+            max-width: 100%; /* Ensure the image does not overflow */
+            height: auto;
+            border: 1px solid #ddd; /* Optional: Add a border for better visibility */
+            border-radius: 8px; /* Optional: Add rounded corners */
+        }
+
         /* Abstract Section Styles */
         .abstract-section {
             background-color: #ffffff;
@@ -136,7 +150,6 @@
             color: orange; /* 改为橙色 */
         }
         /* General Section Styles */
-        .data-source-section,
         .comparison-section,
         .task-definition-section,
         .pipeline-section,
@@ -183,30 +196,6 @@
             border-radius: 8px;
         }
 
-        /* Data Source Section Specific Styles */
-        .data-source-section .content {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .data-source-section .text-column {
-            flex: 1; /* Allocate 2 parts for text */
-            margin-right: 20px; /* Add some space between text and image */
-        }
-
-        .data-source-section .image-column {
-            flex: 1; /* Allocate 1 part for image */
-        }
-
-        .data-source-image {
-            width: 100%; /* Make the image take full width of its container */
-            max-width: 100%; /* Ensure the image does not overflow */
-            height: auto;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-        }
         .quiz-section {
             background-color: #ffffff; /* 设置背景颜色为白色 */
             padding: 40px 100px; /* 增加上下和左右间距 */
@@ -373,6 +362,13 @@
         </div>
     </section>
 
+    <!-- Logo Section -->
+    <section class="logo-section">
+        <div class="container">
+            <img src="assets/images/comparison.jpg" alt="MP5 Logo" class="logo-image">
+        </div>
+    </section>
+
     <!-- Abstract Section -->
     <section class="abstract-section">
         <div class="container">
@@ -401,21 +397,6 @@
             <p>
                 Here we demonstrate several videos of our datasets.
             </p>
-        </div>
-    </section>
-
-    <!-- Data Source Section -->
-    <section class="data-source-section">
-        <div class="container">
-            <h2>Data Source</h2>
-            <div class="content">
-                <div class="text-column">
-                    <p>Here is the data source duration information. This section includes details about the data collection process and the duration of each data set.</p>
-                </div>
-                <div class="image-column">
-                    <img src="assets/images/source_duration.jpg" alt="Data Source" class="data-source-image">
-                </div>
-            </div>
         </div>
     </section>
 
