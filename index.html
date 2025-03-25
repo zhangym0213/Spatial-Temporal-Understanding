@@ -83,6 +83,39 @@
         .title .highlight {
             color: orange; /* 改为橙色 */
         }
+        .data-source-section,
+        .comparison-section,
+        .task-definition-section,
+        .pipeline-section,
+        .results-section {
+            background-color: #ffffff;
+            padding: 40px 100px;
+            margin-top: 20px;
+        }
+
+        .data-source-section h2,
+        .comparison-section h2,
+        .task-definition-section h2,
+        .pipeline-section h2,
+        .results-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .data-source-section p,
+        .comparison-section p,
+        .task-definition-section p,
+        .pipeline-section p,
+        .results-section p {
+            font-size: 1em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        iframe {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
         .quiz-section {
             background-color: #ffffff; /* 设置背景颜色为白色 */
             padding: 40px 100px; /* 增加上下和左右间距 */
@@ -265,6 +298,51 @@
                     <source src="assets/videos/demo3.mp4" type="video/mp4">
                 </video>
             </div>
+        </div>
+    </section>
+
+    <!-- Data Source Section -->
+    <section class="data-source-section">
+        <div class="container">
+            <h2>Data Source</h2>
+            <p>Here is the data source duration information.</p>
+            <iframe src="assets/images/source_duration.pdf" width="100%" height="600px"></iframe>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2>Comparison</h2>
+            <p>Here is the comparison information.</p>
+            <iframe src="assets/images/comparison_pdf.pdf" width="100%" height="600px"></iframe>
+        </div>
+    </section>
+
+    <!-- Task Definition Section -->
+    <section class="task-definition-section">
+        <div class="container">
+            <h2>Task Definition</h2>
+            <p>Here is the task definition information.</p>
+            <iframe src="assets/images/cover.pdf" width="100%" height="600px"></iframe>
+        </div>
+    </section>
+
+    <!-- Pipeline Section -->
+    <section class="pipeline-section">
+        <div class="container">
+            <h2>Pipeline</h2>
+            <p>Here is the pipeline information.</p>
+            <iframe src="assets/images/pipeline.pdf" width="100%" height="600px"></iframe>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section">
+        <div class="container">
+            <h2>Results</h2>
+            <p>Here is the results information.</p>
+            <iframe src="assets/images/results_pdf.pdf" width="100%" height="600px"></iframe>
         </div>
     </section>
 
