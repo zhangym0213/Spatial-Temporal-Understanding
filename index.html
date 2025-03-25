@@ -89,32 +89,72 @@
         .pipeline-section,
         .results-section {
             background-color: #ffffff;
-            padding: 40px 100px;
-            margin-top: 20px;
+            padding: 40px 0; /* Adjust padding to control vertical spacing */
+            margin: 0; /* Remove margin to ensure no space between sections */
         }
 
-        .data-source-section h2,
-        .comparison-section h2,
-        .task-definition-section h2,
-        .pipeline-section h2,
-        .results-section h2 {
+        .container {
+            max-width: 1200px; /* Adjust max-width as needed */
+            margin: 0 auto; /* Center the container */
+            padding: 0 20px; /* Add some padding for smaller screens */
+        }
+
+        /* Section Titles and Descriptions */
+        h2 {
             font-size: 1.8em;
             margin-bottom: 10px;
+            text-align: center; /* Center-align titles */
         }
 
-        .data-source-section p,
-        .comparison-section p,
-        .task-definition-section p,
-        .pipeline-section p,
-        .results-section p {
+        p {
             font-size: 1em;
             color: #333;
             margin-bottom: 20px;
+            text-align: center; /* Center-align descriptions */
         }
 
-        iframe {
+        /* Image Containers */
+        .image-container {
+            text-align: center; /* Center-align images */
+        }
+
+        /* Full-width images */
+        .full-width-image {
+            width: 100%; /* Make images full-width */
+            max-width: 100%; /* Ensure images do not overflow */
+            height: auto;
             border: 1px solid #ddd;
             border-radius: 8px;
+        }
+
+        /* Small image in Data Source section */
+        .data-source-section .small-image {
+            width: 40%; /* Set a smaller width for the image */
+            max-width: 40%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-left: auto;
+            margin-right: 0; /* Align image to the right */
+        }
+
+        /* Data Source Section Specific Styles */
+        .data-source-section .container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .data-source-section h2,
+        .data-source-section p {
+            text-align: left; /* Align text to the left in Data Source section */
+            width: 55%; /* Allocate space for text */
+        }
+
+        .data-source-section .image-container {
+            width: 40%; /* Allocate space for the image */
+            text-align: right; /* Align image container to the right */
         }
         .quiz-section {
             background-color: #ffffff; /* 设置背景颜色为白色 */
@@ -305,8 +345,10 @@
     <section class="data-source-section">
         <div class="container">
             <h2>Data Source</h2>
-            <p>Here is the data source duration information.</p>
-            <img src="assets/images/source_duration.jpg" alt="Data Source" style="width:100%; max-width: 800px;">
+            <p>Here is the data source duration information. This section includes details about the data collection process and the duration of each data set.</p>
+            <div class="image-container">
+                <img src="assets/images/source_duration.jpg" alt="Data Source" class="small-image">
+            </div>
         </div>
     </section>
 
@@ -315,7 +357,9 @@
         <div class="container">
             <h2>Comparison</h2>
             <p>Here is the comparison information.</p>
-            <img src="assets/images/comparison.jpg" alt="Comparison" style="width:100%; max-width: 800px;">
+            <div class="image-container">
+                <img src="assets/images/comparison.jpg" alt="Comparison" class="full-width-image">
+            </div>
         </div>
     </section>
 
@@ -324,7 +368,9 @@
         <div class="container">
             <h2>Task Definition</h2>
             <p>Here is the task definition information.</p>
-            <img src="assets/images/cover.jpg" alt="Task Definition" style="width:100%; max-width: 800px;">
+            <div class="image-container">
+                <img src="assets/images/cover.jpg" alt="Task Definition" class="full-width-image">
+            </div>
         </div>
     </section>
 
@@ -333,7 +379,9 @@
         <div class="container">
             <h2>Pipeline</h2>
             <p>Here is the pipeline information.</p>
-            <img src="assets/images/pipeline.jpg" alt="Pipeline" style="width:100%; max-width: 800px;">
+            <div class="image-container">
+                <img src="assets/images/pipeline.jpg" alt="Pipeline" class="full-width-image">
+            </div>
         </div>
     </section>
 
@@ -342,7 +390,9 @@
         <div class="container">
             <h2>Results</h2>
             <p>Here is the results information.</p>
-            <img src="assets/images/results.jpg" alt="Results" style="width:100%; max-width: 800px;">
+            <div class="image-container">
+                <img src="assets/images/results.jpg" alt="Results" class="full-width-image">
+            </div>
         </div>
     </section>
 
