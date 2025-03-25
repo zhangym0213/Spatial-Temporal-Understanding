@@ -83,6 +83,13 @@
         .conclusion-section {
             background-color: #ffffff;
             padding: 40px 0;
+            margin: 0;
+            width: 100%; /* 设置宽度为整页宽度 */
+        }
+
+        .conclusion-section .container {
+            max-width: 100%; /* 确保容器宽度为整页宽度 */
+            padding: 0 20px; /* 添加一些内边距以适应小屏幕 */
         }
 
         .conclusion-section h2 {
@@ -380,9 +387,6 @@
     <section class="demo-video-section">
         <div class="container">
             <h2>Demo Videos</h2>
-            <p>
-                Here we demonstrate several videos of our datasets.
-            </p>
             <div class="video-container">
                 <video controls autoplay muted loop>
                     <source src="assets/videos/demo1.mp4" type="video/mp4">
@@ -394,6 +398,9 @@
                     <source src="assets/videos/demo3.mp4" type="video/mp4">
                 </video>
             </div>
+            <p>
+                Here we demonstrate several videos of our datasets.
+            </p>
         </div>
     </section>
 
@@ -416,10 +423,10 @@
     <section class="task-definition-section">
         <div class="container">
             <h2>Task Definition</h2>
-            <p>Here is the task definition information.</p>
             <div class="image-container">
                 <img src="assets/images/cover.jpg" alt="Task Definition" class="full-width-image">
             </div>
+            <p>Here is the task definition information.</p>
         </div>
     </section>
 
@@ -427,10 +434,17 @@
     <section class="comparison-section">
         <div class="container">
             <h2>Comparison</h2>
-            <p>Here is the comparison information.</p>
             <div class="image-container">
                 <img src="assets/images/comparison.jpg" alt="Comparison" class="full-width-image">
             </div>
+            <p>
+                <strong>Comparison of ST-Bench with existing benchmarks.</strong> 
+                <strong>Data</strong> represents the source of our QA data, where <strong>V</strong> stands for Video and <strong>I</strong> stands for Image. 
+                <strong>Env.</strong> indicates the environment in which the data is generated, where <strong>S</strong> represents Simulation and <strong>R</strong> represents Real. 
+                The two columns under <strong>View</strong> indicate whether the dataset includes Ego-centric and Allocentric perspectives. 
+                The two columns under <strong>Evaluation</strong> specify whether the ground truth is presented in numerical or textual form. 
+                The four columns under <strong>Spatio-Temporal</strong> indicate whether the benchmark evaluates spatial distance, direction (with angular precision), velocity, or a precise and comprehensive trajectory description.
+            </p>
         </div>
     </section>
 
@@ -440,10 +454,10 @@
     <section class="pipeline-section">
         <div class="container">
             <h2>Pipeline</h2>
-            <p>Here is the pipeline information.</p>
             <div class="image-container">
                 <img src="assets/images/pipeline.jpg" alt="Pipeline" class="full-width-image">
             </div>
+            <p>Here is the pipeline information.</p>
         </div>
     </section>
 
@@ -451,10 +465,10 @@
     <section class="results-section">
         <div class="container">
             <h2>Results</h2>
-            <p>Here is the results information.</p>
             <div class="image-container">
                 <img src="assets/images/results.jpg" alt="Results" class="full-width-image">
             </div>
+            <p>Here is the results information.</p>
         </div>
     </section>
 
