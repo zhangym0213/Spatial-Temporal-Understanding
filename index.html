@@ -326,6 +326,16 @@
         .quiz-feedback.hide-groundtruth span:nth-child(2) {
             display: none;
         }
+
+        /* 新增图片放大样式 */
+        .image-container img {
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.5);
+        }
     </style>
 </head>
 <body>
@@ -426,8 +436,6 @@
         </div>
     </section>
 
-
-
     <!-- Pipeline Section -->
     <section class="pipeline-section">
         <div class="container">
@@ -435,7 +443,12 @@
             <div class="image-container">
                 <img src="assets/images/pipeline.jpg" alt="Pipeline" class="full-width-image">
             </div>
-            <p>Here is the pipeline information.</p>
+            <p>
+                ① Here is the first step of the pipeline information.<br>
+                ② Here is the second step of the pipeline information.<br>
+                ③ Here is the third step of the pipeline information.<br>
+                ④ Here is the fourth step of the pipeline information.
+            </p>
         </div>
     </section>
 
@@ -445,6 +458,7 @@
             <h2>Results</h2>
             <div class="image-container">
                 <img src="assets/images/results.jpg" alt="Results" class="full-width-image">
+                <img src="assets/images/radar.jpg" alt="Radar" class="full-width-image">
             </div>
             <p>Here is the results information.</p>
         </div>
@@ -545,7 +559,6 @@
         });
     }
 
-    // 检查答案
     // 检查答案
     function checkAnswer(questionIndex, selectedIndex) {
         const question = questions[questionIndex];
