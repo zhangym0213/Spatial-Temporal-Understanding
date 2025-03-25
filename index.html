@@ -98,25 +98,20 @@
             max-width: 1200px; /* Adjust max-width as needed */
             margin: 0 auto; /* Center the container */
             padding: 0 20px; /* Add some padding for smaller screens */
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Center-align content */
         }
 
         /* Section Titles and Descriptions */
         h2 {
             font-size: 1.8em;
-            margin-bottom: 10px;
+            margin-bottom: 20px; /* Add some space below the title */
             text-align: center; /* Center-align titles */
-            width: 100%; /* Ensure titles take full width */
         }
 
         p {
             font-size: 1em;
             color: #333;
             margin-bottom: 20px;
-            text-align: center; /* Center-align descriptions */
-            width: 100%; /* Ensure descriptions take full width */
+            text-align: left; /* Align text to the left */
         }
 
         /* Image Containers */
@@ -135,21 +130,20 @@
         }
 
         /* Data Source Section Specific Styles */
-        .data-source-section .container {
-            flex-direction: row; /* Arrange content in a row */
-            justify-content: space-between; /* Distribute space between content */
-            align-items: center; /* Vertically center-align content */
+        .data-source-section .content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
         }
 
-        .data-source-section h2,
-        .data-source-section p {
-            text-align: left; /* Align text to the left in Data Source section */
-            width: 55%; /* Allocate space for text */
+        .data-source-section .text-column {
+            flex: 2; /* Allocate 2 parts for text */
+            margin-right: 20px; /* Add some space between text and image */
         }
 
-        .data-source-section .image-container {
-            width: 40%; /* Allocate space for the image */
-            text-align: right; /* Align image container to the right */
+        .data-source-section .image-column {
+            flex: 1; /* Allocate 1 part for image */
         }
 
         .data-source-image {
@@ -346,13 +340,17 @@
 
     <!-- Data Source Section -->
     <section class="data-source-section">
-    <div class="container">
-        <h2>Data Source</h2>
-        <p>Here is the data source duration information. This section includes details about the data collection process and the duration of each data set.</p>
-        <div class="image-container">
-            <img src="assets/images/source_duration.jpg" alt="Data Source" class="data-source-image">
+        <div class="container">
+            <h2>Data Source</h2>
+            <div class="content">
+                <div class="text-column">
+                    <p>Here is the data source duration information. This section includes details about the data collection process and the duration of each data set.</p>
+                </div>
+                <div class="image-column">
+                    <img src="assets/images/source_duration.png" alt="Data Source" class="data-source-image">
+                </div>
+            </div>
         </div>
-    </div>
     </section>
 
     <!-- Comparison Section -->
