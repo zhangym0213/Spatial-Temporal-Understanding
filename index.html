@@ -57,6 +57,49 @@
             display: inline-block;
             margin-right: 5px;
         }
+        /* Abstract Section Styles */
+        .abstract-section {
+            background-color: #ffffff;
+            padding: 40px 0;
+        }
+
+        .abstract-section h2 {
+            font-size: 2.0em;
+            margin-bottom: 20px;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif; /* 设置字体为 Times New Roman */
+        }
+
+        .abstract-section p {
+            font-size: 1.5em;
+            color: #333;
+            text-align: justify; /* 对齐文本 */
+            margin: 0 auto;
+            max-width: 800px; /* 控制段落宽度 */
+            font-family: 'Times New Roman', Times, serif; /* 设置字体为 Times New Roman */
+        }
+
+        /* Conclusion Section Styles */
+        .conclusion-section {
+            background-color: #ffffff;
+            padding: 40px 0;
+        }
+
+        .conclusion-section h2 {
+            font-size: 2.0em;
+            margin-bottom: 20px;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif; /* 设置字体为 Times New Roman */
+        }
+
+        .conclusion-section p {
+            font-size: 1.5em;
+            color: #333;
+            text-align: justify; /* 对齐文本 */
+            margin: 0 auto;
+            max-width: 800px; /* 控制段落宽度 */
+            font-family: 'Times New Roman', Times, serif; /* 设置字体为 Times New Roman */
+        }
         .demo-video-section {
             background-color: #ffffff; /* 设置背景颜色为白色 */
             padding: 40px 100px; /* 增加上下和左右间距 */
@@ -323,6 +366,17 @@
         </div>
     </section>
 
+    <!-- Abstract Section -->
+    <section class="abstract-section">
+        <div class="container">
+            <h2>Abstract</h2>
+            <p>
+                The use of Multimodal Large Language Models (MLLMs) as an end-to-end solution for Embodied AI and Autonomous Driving has become a prevailing trend. While MLLMs have been extensively studied for visual semantic understanding tasks, their ability to perform precise and quantitative spatial-temporal understanding in real-world applications remains largely unexamined, leading to uncertain prospects. To evaluate models' Spatial-Temporal Intelligence, we introduce ST-Bench, a benchmark designed to evaluate MLLMs' spatial-temporal understanding through challenging tasks such as estimating and predicting the appearance, pose, displacement, and motion of objects. Our benchmark encompasses a wide range of robot and vehicle operations across desktop, indoor, and outdoor scenarios. 
+                The extensive experiments reveals that the state-of-the-art MLLMs still struggle in real-world spatial-temporal understanding, especially in tasks requiring precise distance estimation and motion analysis. 
+            </p>
+        </div>
+    </section>
+
     <section class="demo-video-section">
         <div class="container">
             <h2>Demo Videos</h2>
@@ -358,6 +412,17 @@
         </div>
     </section>
 
+    <!-- Task Definition Section -->
+    <section class="task-definition-section">
+        <div class="container">
+            <h2>Task Definition</h2>
+            <p>Here is the task definition information.</p>
+            <div class="image-container">
+                <img src="assets/images/cover.jpg" alt="Task Definition" class="full-width-image">
+            </div>
+        </div>
+    </section>
+
     <!-- Comparison Section -->
     <section class="comparison-section">
         <div class="container">
@@ -369,16 +434,7 @@
         </div>
     </section>
 
-    <!-- Task Definition Section -->
-    <section class="task-definition-section">
-        <div class="container">
-            <h2>Task Definition</h2>
-            <p>Here is the task definition information.</p>
-            <div class="image-container">
-                <img src="assets/images/cover.jpg" alt="Task Definition" class="full-width-image">
-            </div>
-        </div>
-    </section>
+
 
     <!-- Pipeline Section -->
     <section class="pipeline-section">
@@ -429,8 +485,17 @@
               </div>
           </div>
       </div>
-  </section>
+    </section>
   
+    <section class="conclusion-section">
+        <div class="container">
+            <h2>Conclusion</h2>
+            <p>
+                We introduced ST-Bench, a comprehensive benchmark to assess MLLMs’ spatial-temporal understanding through over 300 real-world videos and 2,000 QA pairs of robot desktop, indoor, and outdoor scenarios. Experiments show that, while state-of-the-art MLLMs handle basic pose estimation and object grounding competently, they often struggle with more fine-grained tasks such as precise distance and velocity estimation, displacement tracking, and ego-centric orientation. These shortcomings appear to stem from issues like sparse temporal sampling in pretraining, insufficient 3D annotations, and a lack of dedicated physical reasoning modules. By highlighting these gaps, ST-Bench provides a valuable platform for guiding future research on strengthening spatial-temporal understanding in MLLMs — an essential step toward improving their applicability in complex real-world applications.
+            </p>
+        </div>
+    </section>
+    
   <script>
     // 定义问题和答案
     const questions = [
