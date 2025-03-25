@@ -314,6 +314,52 @@
             display: none;
         }
 
+        .task-tabs {
+            display: flex;
+            border-bottom: 2px solid #ddd;
+            padding: 0;
+            margin-top: 10px;
+        }
+        .task-tab-button {
+            flex: 1;
+            padding: 12px 20px;
+            text-align: center;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            transition: color 0.3s;
+            font-size: 1.1em;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: #555;
+            position: relative;
+        }
+        .task-tab-button i {
+            font-size: 1.2em;
+        }
+        .task-tab-button.active {
+            color: #FFA500;
+        }
+        .task-tab-button.active::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: #FFA500;
+        }
+        .task-tab-content {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+
+
         /* 新增图片放大样式 */
         .image-container img {
             cursor: pointer;
@@ -401,13 +447,12 @@
         <div class="container">
             <h2>Tasks Definition</h2>
             <p>We have devided the questions into Static Understanding and Dynamic Understanding, and further give definitions to 8 different tasks.</p>
-            <div class="tabs">
-                <button class="tab-button active" onclick="openTab(event, 'Static')">Static Understanding</button>
-                <button class="tab-button" onclick="openTab(event, 'Dynamic')">Dynamic Understanding</button>
+            <div class="task-tabs">
+                <button class="task-tab-button active" onclick="openTaskTab(event, 'Static')">Static Understanding</button>
+                <button class="task-tab-button" onclick="openTaskTab(event, 'Dynamic')">Dynamic Understanding</button>
             </div>
 
-            <div id="Static" class="tab-content">
-                <h3>Static Understanding</h3>
+            <div id="Static" class="task-tab-content">
                 <ul>
                     <li><strong>Dimensional Measurement.</strong> Concerns estimates of an object's geometric size, such as length, width, and height, as well as the distance between objects or between the camera and an object.
                         <p><em>Example:</em> “What is the height of this box?” or “How close is the camera to the table?”</p>
@@ -421,8 +466,7 @@
                 </ul>
             </div>
 
-            <div id="Dynamic" class="tab-content" style="display: none;">
-                <h3>Dynamic Understanding</h3>
+            <div id="Dynamic" class="task-tab-content" style="display: none;">
                 <ul>
                     <li><strong>Displacement and Path Length.</strong> Focuses on how far an object or the camera travels between two given time points.
                         <p><em>Example:</em> “How far has the car traveled from 1s to 18s?”</p>
@@ -431,7 +475,7 @@
                         <p><em>Example:</em> “What is the average speed of the camera?” or “How quickly is the ball accelerating?”</p>
                     </li>
                     <li><strong>Ego-Centric Orientation.</strong> Examines how the camera’s azimuth orientation, parallel to the ground plane, changes over the duration of the video.
-                        <p><em>Example:</em> “How many degrees does the camera’s horizontal orientation shift from the start of the video to its end?”</p>
+                        <p><em>Example:</em> “How many degrees does the container’s horizontal orientation shift from the start of the video to its end?”</p>
                     </li>
                     <li><strong>Trajectory Description.</strong> Describes or infers the camera’s or an object’s motion path throughout the entire video, potentially involving multiple segments of travel and turns.
                         <p><em>Example:</em> “Summarize the camera trajectory, including distances moved and turns made.”</p>
@@ -527,14 +571,14 @@
     </section>
 
     <script>
-        function openTab(evt, tabName) {
+        function openTaskTab(evt, tabName) {
             // 获取所有标签内容并隐藏
             var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tab-content");
+            tabcontent = document.getElementsByClassName("task-tab-content");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
             }
-            tablinks = document.getElementsByClassName("tab-button");
+            tablinks = document.getElementsByClassName("task-tab-button");
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
@@ -544,7 +588,7 @@
         }
     
         // 默认打开第一个标签
-        document.getElementById("defaultOpen").click();
+        document.querySelector(".task-tab-button.active").click();
     </script>
 
   <script>
