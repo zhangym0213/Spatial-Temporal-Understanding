@@ -83,6 +83,7 @@
         .title .highlight {
             color: orange; /* 改为橙色 */
         }
+        /* General Section Styles */
         .data-source-section,
         .comparison-section,
         .task-definition-section,
@@ -97,6 +98,9 @@
             max-width: 1200px; /* Adjust max-width as needed */
             margin: 0 auto; /* Center the container */
             padding: 0 20px; /* Add some padding for smaller screens */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center-align content */
         }
 
         /* Section Titles and Descriptions */
@@ -104,6 +108,7 @@
             font-size: 1.8em;
             margin-bottom: 10px;
             text-align: center; /* Center-align titles */
+            width: 100%; /* Ensure titles take full width */
         }
 
         p {
@@ -111,10 +116,12 @@
             color: #333;
             margin-bottom: 20px;
             text-align: center; /* Center-align descriptions */
+            width: 100%; /* Ensure descriptions take full width */
         }
 
         /* Image Containers */
         .image-container {
+            width: 100%; /* Ensure image container takes full width */
             text-align: center; /* Center-align images */
         }
 
@@ -127,23 +134,11 @@
             border-radius: 8px;
         }
 
-        /* Small image in Data Source section */
-        .data-source-section .small-image {
-            width: 40%; /* Set a smaller width for the image */
-            max-width: 40%;
-            height: auto;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            margin-left: auto;
-            margin-right: 0; /* Align image to the right */
-        }
-
         /* Data Source Section Specific Styles */
         .data-source-section .container {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
+            flex-direction: row; /* Arrange content in a row */
+            justify-content: space-between; /* Distribute space between content */
+            align-items: center; /* Vertically center-align content */
         }
 
         .data-source-section h2,
@@ -155,6 +150,14 @@
         .data-source-section .image-container {
             width: 40%; /* Allocate space for the image */
             text-align: right; /* Align image container to the right */
+        }
+
+        .data-source-image {
+            width: 100%; /* Make the image take full width of its container */
+            max-width: 100%; /* Ensure the image does not overflow */
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
         }
         .quiz-section {
             background-color: #ffffff; /* 设置背景颜色为白色 */
@@ -343,13 +346,13 @@
 
     <!-- Data Source Section -->
     <section class="data-source-section">
-        <div class="container">
-            <h2>Data Source</h2>
-            <p>Here is the data source duration information. This section includes details about the data collection process and the duration of each data set.</p>
-            <div class="image-container">
-                <img src="assets/images/source_duration.jpg" alt="Data Source" class="small-image">
-            </div>
+    <div class="container">
+        <h2>Data Source</h2>
+        <p>Here is the data source duration information. This section includes details about the data collection process and the duration of each data set.</p>
+        <div class="image-container">
+            <img src="assets/images/source_duration.jpg" alt="Data Source" class="data-source-image">
         </div>
+    </div>
     </section>
 
     <!-- Comparison Section -->
