@@ -314,12 +314,37 @@
             display: none;
         }
 
+        /* 背景色和字体统一 */
+        .tabs-section {
+            background-color: #ffffff; /* 设置与页面其他部分一致的背景色 */
+            padding: 40px 0;
+        }
+
+        .tabs-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .tabs-section h2, .tabs-section h3 {
+            font-size: 2.0em;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .tabs-section p, .tabs-section li, .tabs-section strong, .tabs-section em {
+            font-size: 1.5em;
+            color: #333;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
         .task-tabs {
             display: flex;
             border-bottom: 2px solid #ddd;
             padding: 0;
             margin-top: 10px;
         }
+
         .task-tab-button {
             flex: 1;
             padding: 12px 20px;
@@ -328,8 +353,8 @@
             border: none;
             cursor: pointer;
             transition: color 0.3s;
-            font-size: 1.1em;
-            font-weight: bold;
+            font-size: 1.5em; /* 统一字号 */
+            font-family: 'Times New Roman', Times, serif;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -337,12 +362,15 @@
             color: #555;
             position: relative;
         }
+
         .task-tab-button i {
             font-size: 1.2em;
         }
+
         .task-tab-button.active {
             color: #FFA500;
         }
+
         .task-tab-button.active::after {
             content: "";
             position: absolute;
@@ -352,13 +380,13 @@
             height: 4px;
             background-color: #FFA500;
         }
+
         .task-tab-content {
             display: none;
             padding: 6px 12px;
             border: 1px solid #ccc;
             border-top: none;
         }
-
 
         /* 新增图片放大样式 */
         .image-container img {
