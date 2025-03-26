@@ -659,36 +659,52 @@
         <div class="container">
             <h2>More Examples</h2>
             <div class="task-tabs">
-                <button class="task-tab-button active" onclick="openParentTab(event, 'StaticExamples')">Static Understanding</button>
-                <button class="task-tab-button" onclick="openParentTab(event, 'DynamicExamples')">Dynamic Understanding</button>
+                <button class="task-tab-button active" onclick="openTaskTab(event, 'StaticExamples')">Static Understanding</button>
+                <button class="task-tab-button" onclick="openTaskTab(event, 'DynamicExamples')">Dynamic Understanding</button>
             </div>
     
             <!-- Static Understanding Tabs -->
             <div id="StaticExamples" class="task-tab-content">
-                <div class="sub-task-tabs">
-                    <button class="sub-tab-button active" onclick="openSubTab(event, '3DGrounding')">3D Video Grounding</button>
-                    <button class="sub-tab-button" onclick="openSubTab(event, 'SpatialRelation')">Spatial Relation</button>
-                    <button class="sub-tab-button" onclick="openSubTab(event, 'DimensionalMeasurement')">Dimensional Measurement</button>
+                <div class="task-tabs">
+                    <button class="task-tab-button active" onclick="openTaskTab(event, '3DGrounding')">3D Video Grounding</button>
+                    <button class="task-tab-button" onclick="openTaskTab(event, 'SpatialRelation')">Spatial Relation</button>
+                    <button class="task-tab-button" onclick="openTaskTab(event, 'DimensionalMeasurement')">Dimensional Measurement</button>
                 </div>
-                <div id="3DGrounding" class="sub-tab-content"><img src="assets/images/3d_grounding.jpg" alt="3D Video Grounding Example"></div>
-                <div id="SpatialRelation" class="sub-tab-content" style="display: none;"><img src="assets/images/spatial_relation.jpg" alt="Spatial Relation Example"></div>
-                <div id="DimensionalMeasurement" class="sub-tab-content" style="display: none;"><img src="assets/images/dimensional_measurement.jpg" alt="Dimensional Measurement Example"></div>
+                <div id="3DGrounding" class="task-tab-content">
+                    <img src="assets/images/3d_grounding.jpg" alt="3D Video Grounding Example">
+                </div>
+                <div id="SpatialRelation" class="task-tab-content" style="display: none;">
+                    <img src="assets/images/spatial_relation.jpg" alt="Spatial Relation Example">
+                </div>
+                <div id="DimensionalMeasurement" class="task-tab-content" style="display: none;">
+                    <img src="assets/images/dimensional_measurement.jpg" alt="Dimensional Measurement Example">
+                </div>
             </div>
     
             <!-- Dynamic Understanding Tabs -->
             <div id="DynamicExamples" class="task-tab-content" style="display: none;">
-                <div class="sub-task-tabs">
-                    <button class="sub-tab-button active" onclick="openSubTab(event, 'Trajectory')">Trajectory <br> Description</button>
-                    <button class="sub-tab-button" onclick="openSubTab(event, 'PoseEstimation')">Pose <br> Estimation</button>
-                    <button class="sub-tab-button" onclick="openSubTab(event, 'EgoOrientation')">Ego-Centric <br> Orientation</button>
-                    <button class="sub-tab-button" onclick="openSubTab(event, 'Displacement')">Displacement <br> & Path Length</button>
-                    <button class="sub-tab-button" onclick="openSubTab(event, 'Speed')">Speed & <br> Acceleration</button>
+                <div class="task-tabs">
+                    <button class="task-tab-button active" onclick="openTaskTab(event, 'Trajectory')">Trajectory <br> Description</button>
+                    <button class="task-tab-button" onclick="openTaskTab(event, 'PoseEstimation')">Pose <br> Estimation</button>
+                    <button class="task-tab-button" onclick="openTaskTab(event, 'EgoOrientation')">Ego-Centric <br> Orientation</button>
+                    <button class="task-tab-button" onclick="openTaskTab(event, 'Displacement')">Displacement <br> & Path Length</button>
+                    <button class="task-tab-button" onclick="openTaskTab(event, 'Speed')">Speed & <br> Acceleration</button>
                 </div>
-                <div id="Trajectory" class="sub-tab-content"><img src="assets/images/trajectory.jpg" alt="Trajectory Description Example"></div>
-                <div id="PoseEstimation" class="sub-tab-content" style="display: none;"><img src="assets/images/pose_estimation.jpg" alt="Pose Estimation Example"></div>
-                <div id="EgoOrientation" class="sub-tab-content" style="display: none;"><img src="assets/images/ego_orientation.jpg" alt="Ego-Centric Orientation Example"></div>
-                <div id="Displacement" class="sub-tab-content" style="display: none;"><img src="assets/images/displacement.jpg" alt="Displacement Example"></div>
-                <div id="Speed" class="sub-tab-content" style="display: none;"><img src="assets/images/speed.jpg" alt="Speed & Acceleration Example"></div>
+                <div id="Trajectory" class="task-tab-content">
+                    <img src="assets/images/trajectory.jpg" alt="Trajectory Description Example">
+                </div>
+                <div id="PoseEstimation" class="task-tab-content" style="display: none;">
+                    <img src="assets/images/pose_estimation.jpg" alt="Pose Estimation Example">
+                </div>
+                <div id="EgoOrientation" class="task-tab-content" style="display: none;">
+                    <img src="assets/images/ego_orientation.jpg" alt="Ego-Centric Orientation Example">
+                </div>
+                <div id="Displacement" class="task-tab-content" style="display: none;">
+                    <img src="assets/images/displacement.jpg" alt="Displacement Example">
+                </div>
+                <div id="Speed" class="task-tab-content" style="display: none;">
+                    <img src="assets/images/speed.jpg" alt="Speed & Acceleration Example">
+                </div>
             </div>
         </div>
     </section>
