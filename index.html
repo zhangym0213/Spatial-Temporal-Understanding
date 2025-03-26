@@ -204,11 +204,13 @@
             flex: 3;
             max-width: 60%;
         }
+        /* 调整文本列的内边距 */
         .quiz-section .text-column {
             flex: 2;
             max-width: 40%;
-            padding-right: 20px; /* 添加右边距防止溢出 */
-            box-sizing: border-box; /* 确保padding包含在宽度内 */
+            padding-right: 10px; /* 减少右边距 */
+            box-sizing: border-box;
+            overflow: hidden; /* 防止内容溢出 */
         }
         .quiz-section h2 {
             font-size: 2.0em; /* 增大字体大小 */
@@ -225,23 +227,28 @@
             width: 100%; /* 视频宽度占满整个左边栏 */
             height: auto; /* 视频高度自动调整 */
         }
+        /* 调整tab布局防止溢出 */
         .tabs {
-        display: flex;
-        border-bottom: 2px solid #ddd;
-        padding: 0;
-        margin-top: 10px;
+            display: flex;
+            border-bottom: 2px solid #ddd;
+            padding: 0;
+            margin-top: 10px;
+            overflow-x: auto; /* 允许横向滚动 */
+            white-space: nowrap; /* 防止换行 */
         }
+
         .tab-button {
             flex: 1;
-            padding: 12px 20px;
+            min-width: 150px; /* 设置最小宽度 */
+            padding: 12px 15px; /* 减少内边距 */
             text-align: center;
             background-color: transparent;
             border: none;
             cursor: pointer;
             transition: color 0.3s;
-            font-size: 1.1em;
+            font-size: 1em; /* 减小字体大小 */
             font-weight: bold;
-            display: flex;
+            display: inline-flex; /* 改为inline-flex以适应横向布局 */
             align-items: center;
             justify-content: center;
             gap: 8px;
@@ -277,38 +284,36 @@
         .quiz-options {
             list-style-type: none;
             padding: 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* 两列 */
-            grid-template-rows: auto auto; /* 两行 */
-            gap: 15px; /* 选项间距 */
-            max-width: 100%; /* 确保不超出容器 */
-            margin: 0 auto; /* 居中 */
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 100%;
+            margin: 0 auto;
         }
 
         .quiz-options li {
-            margin: 0; /* 移除原有外边距 */
+            margin: 0;
             display: flex;
-            justify-content: center; /* 居中选项 */
+            justify-content: center;
         }
 
         .quiz-options button {
             display: flex;
             align-items: center;
-            width: 100%; /* 填满网格单元格 */
+            width: 90%; /* 稍微减少宽度防止溢出 */
             padding: 15px;
-            background-color: #f0f0f0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            background-color: rgba(245, 245, 220, 0.8); /* 透明度80%的米色 */
+            border: none; /* 移除边框 */
+            border-radius: 8px;
             cursor: pointer;
             font-size: 20px;
-            text-align: left;
-            justify-content: flex-start; /* 文字左对齐 */
-            height: 100%; /* 统一高度 */
-            box-sizing: border-box; /* 包含padding */
+            justify-content: center; /* 居中内容 */
+            box-sizing: border-box;
+            transition: background-color 0.3s;
         }
 
         .quiz-options button:hover {
-            background-color: #ddd;
+            background-color: rgba(245, 245, 220, 1); /* 悬停时完全不透明 */
         }
 
         /* 选项字母标签样式 */
@@ -706,7 +711,7 @@
                 <div class="text-column" style="flex: 2;">
                     <div class="tabs">
                         <button class="tab-button active" onclick="showTab(0)"><i class="fas fa-rocket"></i> Speed & Acceleration </button>
-                        <button class="tab-button" onclick="showTab(1)"><i class="fa-solid fa-route"></i> Trajectory Description</button>
+                        <button class="tab-button" onclick="showTab(1)"><i class="fa-solid fa-route"></i> Displacement % Path Length</button>
                         <button class="tab-button" onclick="showTab(2)"><i class="fas fa-ruler"></i> Dimensional Measurement </button>
                     </div>
                     <div class="tab-content" id="tab-content">
