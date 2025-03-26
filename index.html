@@ -391,10 +391,15 @@
             overflow: hidden; /* 隐藏超出部分 */
         }
 
+        .slides-container {
+            position: relative;
+            width: 100%;
+        }
+
         .slide {
             position: absolute;
             width: 100%;
-            transition: opacity 0.5s ease; /* 添加透明度过渡动画 */
+            transition: transform 0.3s ease-in-out; /* 添加过渡动画 */
         }
 
         .full-width-image {
@@ -404,7 +409,7 @@
         }
 
         .full-width-image:hover {
-            transform: scale(1.2); /* 鼠标悬停时放大 */
+            transform: scale(1.1); /* 鼠标悬停时放大 */
         }
 
         .slider-controls {
@@ -426,6 +431,17 @@
 
         .prev-button:hover, .next-button:hover {
             background-color: #555;
+        }
+
+        /* 添加淡入淡出效果 */
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
         }
 
         /* 新增图片放大样式 */
@@ -705,7 +721,7 @@
 
         function showSlide(index) {
             slides.forEach((slide, i) => {
-                slide.style.opacity = i === index ? 1 : 0; // 使用透明度切换
+                slide.style.display = i === index ? 'block' : 'none';
             });
             currentSlide = index;
         }
