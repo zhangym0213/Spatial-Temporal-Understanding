@@ -394,12 +394,15 @@
             height: 600px;
         }
 
+        /* 修改slides-container样式 */
         .slides-container {
             position: relative;
             width: 100%;
             height: 100%;
+            overflow: visible; /* 确保容器允许内容溢出 */
         }
 
+        /* 修改slide样式 */
         .slide {
             position: absolute;
             width: 100%;
@@ -407,34 +410,41 @@
             transition: opacity 1s ease-in-out;
             top: 0;
             left: 0;
+            z-index: 1; /* 设置基础z-index */
         }
 
         .slide.active {
             opacity: 1;
+            z-index: 2; /* 活动幻灯片稍高 */
         }
 
+        /* 修改图片悬停效果 */
         .full-width-image {
             width: 100%;
             max-width: 100%;
             border-radius: 8px;
             transition: transform 0.3s ease-in-out;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform-origin: center center; /* 确保从中心放大 */
+            position: relative; /* 添加相对定位 */
         }
 
         .full-width-image:hover {
-            transform: scale(1.05);
-            z-index: 10;
+            transform: scale(1.1);
+            z-index: 20; /* 设置足够高的z-index确保在最前 */
+            position: relative; /* 确保z-index生效 */
         }
 
         .slider-controls {
             position: absolute;
-            bottom: -50px;
+            bottom: -70px;  /* 从原来的-50px调整为-70px，使按钮更靠下 */
             left: 0;
             right: 0;
             display: flex;
             justify-content: center;
             gap: 20px;
             z-index: 5;
+            margin-top: 30px; /* 额外增加上边距 */
         }
 
         .prev-button, .next-button {
@@ -691,7 +701,6 @@
                         <button class="tab-button active" onclick="showTab(0)"><i class="fas fa-rocket"></i> Speed & Acceleration </button>
                         <button class="tab-button" onclick="showTab(1)"><i class="fa-solid fa-route"></i> Trajectory Description</button>
                         <button class="tab-button" onclick="showTab(2)"><i class="fas fa-ruler"></i> Dimensional Measurement </button>
-                        <button class="tab-button" onclick="showTab(3)"><i class="fa-regular fa-compass"></i> Spatial Relation </button>
                     </div>
                     <div class="tab-content" id="tab-content">
                         <div class="quiz-question">
@@ -746,14 +755,16 @@
         slides[0].style.opacity = 1;
 
         function showSlide(index) {
-            // 隐藏所有幻灯片
+            // 先重置所有幻灯片状态
             slides.forEach(slide => {
+                slide.style.zIndex = 1;
                 slide.classList.remove('active');
                 slide.style.opacity = 0;
             });
             
-            // 显示当前幻灯片
+            // 设置新活动幻灯片
             slides[index].classList.add('active');
+            slides[index].style.zIndex = 2;
             setTimeout(() => {
                 slides[index].style.opacity = 1;
             }, 50);
@@ -817,11 +828,12 @@
 
   <script>
     // 定义问题和答案
+    // 更新问题和答案数组，移除第四个问题
     const questions = [
         {
             question: "What is the velocity of the object when t=0s ?",
             options: ["10 m/s", "20 m/s", "30 m/s", "40 m/s"],
-            correctAnswer: 1, // 正确答案的索引
+            correctAnswer: 1,
             GroundTruth: "The GroundTruth is 19.2m/s."
         },
         {
@@ -835,16 +847,14 @@
             options: ["Route A", "Route B", "Route C","Route D"],
             correctAnswer: 0,
             GroundTruth: "The correct answer is Route A.",
-            isRouteOrDirection: true // 添加标识符
-        },
-        {
-            question: "What is the direction of movement?",
-            options: ["North", "South", "East ","West "],
-            correctAnswer: 2,
-            GroundTruth: "The correct answer is East.",
-            isRouteOrDirection: true // 添加标识符
+            isRouteOrDirection: true
         }
     ];
+
+    // 更新时间点数组，现在只有3个时间点
+    const t1 = 0;
+    const t2 = 5;
+    const t3 = 10;
 
     // 显示 Tab 内容
     function showTab(index) {
@@ -898,11 +908,6 @@
         feedbackElement.innerHTML = feedbackContent;
     }
 
-    // 定义时间点
-    const t1 = 0; // 替换为实际时间（秒）
-    const t2 = 5;
-    const t3 = 10;
-    const t4 = 15;
 
     // 获取视频元素
     const video = document.getElementById("quiz-video");
@@ -913,7 +918,6 @@
     // 为每个 Tab 按钮添加点击事件监听器
     tabButtons.forEach((button, index) => {
         button.addEventListener("click", () => {
-            // 根据点击的 Tab 跳转到对应的时间点
             switch (index) {
                 case 0:
                     video.currentTime = t1;
@@ -924,11 +928,7 @@
                 case 2:
                     video.currentTime = t3;
                     break;
-                case 3:
-                    video.currentTime = t4;
-                    break;
             }
-            // 显示对应的 Tab 内容
             showTab(index);
         });
     });
