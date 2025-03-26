@@ -377,7 +377,7 @@
         .task-tab-content.active {
             display: block;
         }
-        /* More Examples */
+
         /* More Examples Section Styles */
         .more-examples-section {
             background-color: #ffffff;
@@ -388,11 +388,23 @@
             position: relative;
             max-width: 100%;
             margin: 0 auto;
+            overflow: hidden; /* 隐藏超出部分 */
         }
 
         .slide {
+            position: absolute;
             width: 100%;
-            transition: transform 0.5s ease;
+            transition: opacity 0.5s ease; /* 添加透明度过渡动画 */
+        }
+
+        .full-width-image {
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out; /* 添加放大动画 */
+        }
+
+        .full-width-image:hover {
+            transform: scale(1.2); /* 鼠标悬停时放大 */
         }
 
         .slider-controls {
@@ -690,37 +702,37 @@
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
         const totalSlides = slides.length;
-    
+
         function showSlide(index) {
             slides.forEach((slide, i) => {
-                slide.style.display = i === index ? 'block' : 'none';
+                slide.style.opacity = i === index ? 1 : 0; // 使用透明度切换
             });
             currentSlide = index;
         }
-    
+
         function nextSlide() {
             let nextSlide = (currentSlide + 1) % totalSlides;
             showSlide(nextSlide);
         }
-    
+
         function prevSlide() {
             let prevSlide = (currentSlide - 1 + totalSlides) % totalSlides;
             showSlide(prevSlide);
         }
-    
+
         // 自动切换
         let autoSlideInterval;
         function startAutoSlide() {
-            autoSlideInterval = setInterval(nextSlide, 3000); // 每3秒自动切换
+            autoSlideInterval = setInterval(nextSlide, 2000); // 每2秒自动切换
         }
-    
+
         function stopAutoSlide() {
             clearInterval(autoSlideInterval);
         }
-    
+
         // 初始化
         startAutoSlide();
-    
+
         // 鼠标悬停时停止自动切换
         document.querySelector('.image-slider').addEventListener('mouseover', stopAutoSlide);
         document.querySelector('.image-slider').addEventListener('mouseout', startAutoSlide);
