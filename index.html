@@ -127,6 +127,7 @@
             display: flex;
             justify-content: center;
             gap: 10px; /* 视频之间的间距 */
+            margin-bottom: 20px; /* 每行之间的间距 */
         }
         .video-container video {
             border-radius: 8px; /* 视频边角圆滑 */
@@ -456,14 +457,39 @@
     <section class="demo-video-section">
         <div class="container">
             <h2>Demo Videos</h2>
-            <div class="video-container">
-                <video controls autoplay muted loop>
+            <!-- 第一行视频 -->
+            <div class="video-container" style="justify-content: space-between;">
+                <video controls autoplay muted loop style="width: 30%;">
                     <source src="assets/videos/demo1.mp4" type="video/mp4">
                 </video>
-                <video controls autoplay muted loop>
+                <video controls autoplay muted loop style="width: 40%;">
                     <source src="assets/videos/demo2.mp4" type="video/mp4">
                 </video>
-                <video controls autoplay muted loop>
+                <video controls autoplay muted loop style="width: 30%;">
+                    <source src="assets/videos/demo3.mp4" type="video/mp4">
+                </video>
+            </div>
+            <!-- 第二行视频 -->
+            <div class="video-container" style="justify-content: space-between;">
+                <video controls autoplay muted loop style="width: 50%;">
+                    <source src="assets/videos/demo1.mp4" type="video/mp4">
+                </video>
+                <video controls autoplay muted loop style="width: 25%;">
+                    <source src="assets/videos/demo2.mp4" type="video/mp4">
+                </video>
+                <video controls autoplay muted loop style="width: 25%;">
+                    <source src="assets/videos/demo3.mp4" type="video/mp4">
+                </video>
+            </div>
+            <!-- 第三行视频 -->
+            <div class="video-container" style="justify-content: space-between;">
+                <video controls autoplay muted loop style="width: 50%;">
+                    <source src="assets/videos/demo1.mp4" type="video/mp4">
+                </video>
+                <video controls autoplay muted loop style="width: 25%;">
+                    <source src="assets/videos/demo2.mp4" type="video/mp4">
+                </video>
+                <video controls autoplay muted loop style="width: 25%;">
                     <source src="assets/videos/demo3.mp4" type="video/mp4">
                 </video>
             </div>
@@ -562,6 +588,22 @@
             </div>
         </div>
     </section>
+
+    <!-- 如果有更多的结果测出来，那么文字放最底下 -->
+    <!-- <section class="results-section">
+        <div class="container">
+            <h2>Results</h2>
+            <div class="image-container" style="display: flex; justify-content: space-between; gap: 20px;">
+                <div style="flex: 1;">
+                    <img src="assets/images/results.jpg" alt="Results" class="full-width-image">
+                </div>
+                <div style="flex: 1;">
+                    <img src="assets/images/radar.jpg" alt="Radar" class="full-width-image">
+                </div>
+            </div>
+            <p><strong>Main Results.</strong> The experimental results in indoor, outdoor, and desktop environments consistently demonstrate that MLLMs exhibit significant limitations in Dimensional Measurement and displacement & estimation tasks. Across all evaluated scenarios, these models achieve substantially lower performance compared to other spatial reasoning tasks, such as pose estimation, directional reasoning, and 3D video grounding. In particular, performance is uniformly low among all models tested, indicating a generalized deficiency in accurately perceiving and estimating distances and displacements, rather than shortcomings of specific model architectures. </p>
+        </div>
+    </section> -->
 
     <section class="quiz-section">
       <div class="video-column">
