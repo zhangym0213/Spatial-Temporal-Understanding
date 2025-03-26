@@ -192,6 +192,10 @@
             align-items: flex-start;
             gap: 20px; /* 调整左右间距 */
         }
+        .quiz-section-title {
+            margin-bottom: 20px; /* 添加一些间距 */
+            text-align: center; /* 标题居中对齐 */
+        }
         .quiz-section .video-column {
             flex: 3; /* 左边栏占3份 */
         }
@@ -609,33 +613,35 @@
         <div class="quiz-section-title">
             <h2>QUIZ</h2>
         </div>
-      <div class="video-column">
-          <video id="quiz-video" controls autoplay muted loop>
-              <source src="assets/videos/1024360143612057520_3580_000_3600_000_camera_1.mp4" type="video/mp4">
-          </video>
-      </div>
-      <div class="text-column">
-          <div class="tabs">
-              <button class="tab-button active" onclick="showTab(0)"><i class="fas fa-rocket"></i> Speed & Acceleration </button>
-              <button class="tab-button" onclick="showTab(1)"><i class="fa-solid fa-route"></i> Trajectory Description</button>
-              <button class="tab-button" onclick="showTab(2)"><i class="fas fa-ruler"></i> Dimensional Measurement </button>
-              <button class="tab-button" onclick="showTab(3)"><i class="fa-regular fa-compass"></i> Spatial Relation </button>
-          </div>
-          <div class="tab-content" id="tab-content">
-              <!-- 默认显示第一个 Tab 的内容 -->
-              <div class="quiz-question">
-                  <p>What is the velocity of the object?</p>
-                  <ul class="quiz-options">
-                      <li><button onclick="checkAnswer(0, 0)">10 m/s</button></li>
-                      <li><button onclick="checkAnswer(0, 1)">20 m/s</button></li>
-                      <li><button onclick="checkAnswer(0, 2)">30 m/s</button></li>
-                  </ul>
-                  <p id="quiz-feedback-0" class="quiz-feedback"></p>
-              </div>
-          </div>
-      </div>
+        <div class="quiz-content">
+            <div class="video-column">
+                <video id="quiz-video" controls autoplay muted loop>
+                    <source src="assets/videos/1024360143612057520_3580_000_3600_000_camera_1.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="text-column">
+                <div class="tabs">
+                    <button class="tab-button active" onclick="showTab(0)"><i class="fas fa-rocket"></i> Speed & Acceleration </button>
+                    <button class="tab-button" onclick="showTab(1)"><i class="fa-solid fa-route"></i> Trajectory Description</button>
+                    <button class="tab-button" onclick="showTab(2)"><i class="fas fa-ruler"></i> Dimensional Measurement </button>
+                    <button class="tab-button" onclick="showTab(3)"><i class="fa-regular fa-compass"></i> Spatial Relation </button>
+                </div>
+                <div class="tab-content" id="tab-content">
+                    <!-- 默认显示第一个 Tab 的内容 -->
+                    <div class="quiz-question">
+                        <p>What is the velocity of the object?</p>
+                        <ul class="quiz-options">
+                            <li><button onclick="checkAnswer(0, 0)">10 m/s</button></li>
+                            <li><button onclick="checkAnswer(0, 1)">20 m/s</button></li>
+                            <li><button onclick="checkAnswer(0, 2)">30 m/s</button></li>
+                        </ul>
+                        <p id="quiz-feedback-0" class="quiz-feedback"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    
+
     <section class="more-examples-section">
         <div class="container">
             <h2>More Examples</h2>
@@ -692,7 +698,7 @@
         document.querySelector(".task-tab-button.active").click();
         document.querySelector(".sub-tab-button.active").click();
     </script>
-    
+
     <section class="conclusion-section">
         <div class="container">
             <h2>Conclusion</h2>
