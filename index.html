@@ -389,6 +389,8 @@
             max-width: 100%;
             margin: 0 auto;
             overflow: hidden; /* 隐藏超出部分 */
+            height: 600px; /* 根据需要调整高度 */
+            padding-bottom: 20px; /* 为按钮留出空间 */
         }
 
         .slides-container {
@@ -417,7 +419,7 @@
             justify-content: center;
             margin-top: 20px;
         }
-
+    
         .prev-button, .next-button {
             background-color: #333;
             color: white;
@@ -427,6 +429,7 @@
             font-size: 1.2em;
             border-radius: 5px;
             margin: 0 10px;
+            display: inline-block; /* 确保按钮是可见的 */
         }
 
         .prev-button:hover, .next-button:hover {
