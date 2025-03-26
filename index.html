@@ -377,7 +377,45 @@
         .task-tab-content.active {
             display: block;
         }
+        /* More Examples */
+        /* More Examples Section Styles */
+        .more-examples-section {
+            background-color: #ffffff;
+            padding: 40px 0;
+        }
 
+        .image-slider {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .slide {
+            width: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .prev-button, .next-button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1.2em;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+
+        .prev-button:hover, .next-button:hover {
+            background-color: #555;
+        }
+        
         /* 新增图片放大样式 */
         .image-container img {
             cursor: pointer;
@@ -625,6 +663,68 @@
             </div>
         </div>
     </section>
+
+    <!-- More Examples Section -->
+    <section class="more-examples-section">
+        <div class="container">
+            <h2>More Examples</h2>
+            <div class="image-slider">
+                <div class="slide" id="slide-0" style="display: block;">
+                    <img src="assets/images/example1.jpg" alt="Example 1" class="full-width-image">
+                </div>
+                <div class="slide" id="slide-1" style="display: none;">
+                    <img src="assets/images/example2.jpg" alt="Example 2" class="full-width-image">
+                </div>
+                <div class="slide" id="slide-2" style="display: none;">
+                    <img src="assets/images/example3.jpg" alt="Example 3" class="full-width-image">
+                </div>
+                <div class="slider-controls">
+                    <button class="prev-button" onclick="prevSlide()">&#10094;</button>
+                    <button class="next-button" onclick="nextSlide()">&#10095;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+    
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.display = i === index ? 'block' : 'none';
+            });
+            currentSlide = index;
+        }
+    
+        function nextSlide() {
+            let nextSlide = (currentSlide + 1) % totalSlides;
+            showSlide(nextSlide);
+        }
+    
+        function prevSlide() {
+            let prevSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(prevSlide);
+        }
+    
+        // 自动切换
+        let autoSlideInterval;
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(nextSlide, 3000); // 每3秒自动切换
+        }
+    
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+    
+        // 初始化
+        startAutoSlide();
+    
+        // 鼠标悬停时停止自动切换
+        document.querySelector('.image-slider').addEventListener('mouseover', stopAutoSlide);
+        document.querySelector('.image-slider').addEventListener('mouseout', startAutoSlide);
+    </script>
 
     <section class="conclusion-section">
         <div class="container">
