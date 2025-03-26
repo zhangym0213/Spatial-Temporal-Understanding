@@ -233,7 +233,7 @@
         }
         .tab-button {
             flex: 1;
-            padding: 12px 20px;
+            padding: 12px 15px;
             text-align: center;
             background-color: transparent;
             border: none;
@@ -283,6 +283,18 @@
             gap: 15px; /* 选项间距 */
             max-width: 100%; /* 确保不超出容器 */
             margin: 0 auto; /* 居中 */
+            width: 90%; /* 稍微减少宽度防止溢出 */
+            background-color: rgba(245, 245, 220, 0.8); /* 透明度80%的米色 */
+            border: none; /* 移除边框 */
+            border-radius: 8px;
+            cursor: pointer;
+            justify-content: center; /* 居中内容 */
+            box-sizing: border-box;
+            transition: background-color 0.3s;
+        }
+        
+        .quiz-options button:hover {
+        background-color: rgba(245, 245, 220, 1); /* 悬停时完全不透明 */
         }
 
         .quiz-options li {
@@ -706,7 +718,7 @@
                 <div class="text-column" style="flex: 2;">
                     <div class="tabs">
                         <button class="tab-button active" onclick="showTab(0)"><i class="fas fa-rocket"></i> Speed & Acceleration </button>
-                        <button class="tab-button" onclick="showTab(1)"><i class="fa-solid fa-route"></i> Displacement % Path Length </button>
+                        <button class="tab-button" onclick="showTab(1)"><i class="fa-solid fa-route"></i> Displacement & Path Length </button>
                         <button class="tab-button" onclick="showTab(2)"><i class="fas fa-ruler"></i> Dimensional Measurement </button>
                     </div>
                     <div class="tab-content" id="tab-content">
