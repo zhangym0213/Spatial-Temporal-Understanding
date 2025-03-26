@@ -284,17 +284,6 @@
             max-width: 100%; /* 确保不超出容器 */
             margin: 0 auto; /* 居中 */
             width: 90%; /* 稍微减少宽度防止溢出 */
-            background-color: rgba(245, 245, 220, 0.8); /* 透明度80%的米色 */
-            border: none; /* 移除边框 */
-            border-radius: 8px;
-            cursor: pointer;
-            justify-content: center; /* 居中内容 */
-            box-sizing: border-box;
-            transition: background-color 0.3s;
-        }
-        
-        .quiz-options button:hover {
-        background-color: rgba(245, 245, 220, 1); /* 悬停时完全不透明 */
         }
 
         .quiz-options li {
@@ -308,21 +297,22 @@
             align-items: center;
             width: 100%; /* 填满网格单元格 */
             padding: 15px;
-            background-color: #f0f0f0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            background-color: rgba(245, 245, 220, 0.8); /* 透明度80%的米色 */
+            border: none; /* 移除边框 */
+            border-radius: 8px;
             cursor: pointer;
             font-size: 20px;
             text-align: left;
             justify-content: flex-start; /* 文字左对齐 */
             height: 100%; /* 统一高度 */
-            box-sizing: border-box; /* 包含padding */
+            box-sizing: border-box;
+            transition: background-color 0.3s;
         }
 
         .quiz-options button:hover {
-            background-color: #ddd;
+            background-color: rgba(245, 245, 220, 1); /* 悬停时完全不透明 */
         }
-
+        
         /* 选项字母标签样式 */
         .option-label {
             font-weight: bold;
