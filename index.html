@@ -273,32 +273,38 @@
             margin-bottom: 20px;
         }
 
+        /* 修改quiz选项布局 */
         .quiz-options {
             list-style-type: none;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* 右对齐 */
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 两列 */
+            grid-template-rows: auto auto; /* 两行 */
+            gap: 15px; /* 选项间距 */
+            max-width: 100%; /* 确保不超出容器 */
+            margin: 0 auto; /* 居中 */
         }
 
         .quiz-options li {
-            margin: 10px 0;
+            margin: 0; /* 移除原有外边距 */
             display: flex;
-            max-width: 300px; /* 控制最大宽度 */
+            justify-content: center; /* 居中选项 */
         }
 
-        /* 选项按钮样式 */
         .quiz-options button {
             display: flex;
             align-items: center;
-            width: auto; /* 自适应宽度 */
+            width: 100%; /* 填满网格单元格 */
             padding: 15px;
             background-color: #f0f0f0;
             border: 1px solid #ccc;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 20px; /* 选项字体大小 */
+            font-size: 20px;
             text-align: left;
+            justify-content: flex-start; /* 文字左对齐 */
+            height: 100%; /* 统一高度 */
+            box-sizing: border-box; /* 包含padding */
         }
 
         .quiz-options button:hover {
@@ -314,8 +320,9 @@
             white-space: nowrap; /* 防止换行 */
         }
 
-        /* 反馈信息样式 */
+        /* 调整反馈信息位置 */
         .quiz-feedback {
+            grid-column: span 2; /* 反馈信息跨两列 */
             margin-top: 20px;
             font-size: 20px;
             font-weight: bold;
@@ -709,6 +716,7 @@
                                 <li><button onclick="checkAnswer(0, 0)">10 m/s</button></li>
                                 <li><button onclick="checkAnswer(0, 1)">20 m/s</button></li>
                                 <li><button onclick="checkAnswer(0, 2)">30 m/s</button></li>
+                                <li><button onclick="checkAnswer(0, 3)">40 m/s</button></li>
                             </ul>
                             <p id="quiz-feedback-0" class="quiz-feedback"></p>
                         </div>
