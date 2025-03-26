@@ -380,14 +380,18 @@
             display: block;
         }
 
-        /* 修改More Examples部分的样式 */
+        /* More Examples Section Styles */
+        .more-examples-section {
+            background-color: #ffffff; /* 确保背景为白色 */
+            padding: 40px 0;
+        }
+
         .image-slider {
             position: relative;
-            max-width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
-            overflow: visible; /* 修改为visible以显示放大后的图片 */
+            overflow: visible;
             height: 600px;
-            padding-bottom: 60px; /* 增加底部空间给按钮 */
         }
 
         .slides-container {
@@ -400,7 +404,9 @@
             position: absolute;
             width: 100%;
             opacity: 0;
-            transition: opacity 1s ease-in-out; /* 使用opacity实现淡入淡出 */
+            transition: opacity 1s ease-in-out;
+            top: 0;
+            left: 0;
         }
 
         .slide.active {
@@ -409,25 +415,49 @@
 
         .full-width-image {
             width: 100%;
+            max-width: 100%;
             border-radius: 8px;
             transition: transform 0.3s ease-in-out;
-            transform-origin: center center; /* 设置放大原点为中心 */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
         .full-width-image:hover {
-            transform: scale(1.1);
-            z-index: 10; /* 确保放大图片在最上层 */
+            transform: scale(1.05);
+            z-index: 10;
         }
 
         .slider-controls {
             position: absolute;
-            bottom: 0;
+            bottom: -50px;
             left: 0;
             right: 0;
             display: flex;
             justify-content: center;
-            margin-top: 20px;
-            z-index: 5; /* 确保按钮在图片上方 */
+            gap: 20px;
+            z-index: 5;
+        }
+
+        .prev-button, .next-button {
+            background-color: #333333;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            cursor: pointer;
+            font-size: 1.2em;
+            border-radius: 30px;
+            transition: background-color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+        }
+
+        .prev-button:hover, .next-button:hover {
+            background-color: #555555;
+        }
+
+        .prev-button i, .next-button i {
+            margin: 0 8px;
         }
 
 
@@ -679,43 +709,55 @@
         </div>
     </section>
 
-    <!-- More Examples Section -->
     <section class="more-examples-section">
         <div class="container">
             <h2>More Examples</h2>
             <div class="image-slider">
-                <div class="slide" id="slide-0" style="display: block;">
-                    <img src="assets/images/3radar.jpg" alt="Example 1" class="full-width-image">
-                </div>
-                <div class="slide" id="slide-1" style="display: none;">
-                    <img src="assets/images/pipeline.jpg" alt="Example 2" class="full-width-image">
-                </div>
-                <div class="slide" id="slide-2" style="display: none;">
-                    <img src="assets/images/cover.jpg" alt="Example 3" class="full-width-image">
+                <div class="slides-container">
+                    <div class="slide active" id="slide-0">
+                        <img src="assets/images/3radar.jpg" alt="Example 1" class="full-width-image">
+                    </div>
+                    <div class="slide" id="slide-1">
+                        <img src="assets/images/pipeline.jpg" alt="Example 2" class="full-width-image">
+                    </div>
+                    <div class="slide" id="slide-2">
+                        <img src="assets/images/cover.jpg" alt="Example 3" class="full-width-image">
+                    </div>
                 </div>
                 <div class="slider-controls">
-                    <button class="prev-button" onclick="prevSlide()">&#10094;</button>
-                    <button class="next-button" onclick="nextSlide()">&#10095;</button>
+                    <button class="prev-button" onclick="prevSlide()">
+                        <i class="fas fa-chevron-left"></i> Prev
+                    </button>
+                    <button class="next-button" onclick="nextSlide()">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
     <script>
-        // 修改More Examples部分的JavaScript
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
         const totalSlides = slides.length;
 
+        // 初始化显示第一张
+        slides[0].classList.add('active');
+        slides[0].style.opacity = 1;
+
         function showSlide(index) {
-            slides.forEach((slide, i) => {
+            // 隐藏所有幻灯片
+            slides.forEach(slide => {
                 slide.classList.remove('active');
-                if (i === index) {
-                    setTimeout(() => {
-                        slide.classList.add('active');
-                    }, 50);
-                }
+                slide.style.opacity = 0;
             });
+            
+            // 显示当前幻灯片
+            slides[index].classList.add('active');
+            setTimeout(() => {
+                slides[index].style.opacity = 1;
+            }, 50);
+            
             currentSlide = index;
         }
 
@@ -729,25 +771,23 @@
             showSlide(prevSlide);
         }
 
-        // 初始化显示第一张幻灯片
-        showSlide(0);
-
         // 自动切换
         let autoSlideInterval;
         function startAutoSlide() {
-            autoSlideInterval = setInterval(nextSlide, 3000); // 每3秒自动切换
+            autoSlideInterval = setInterval(nextSlide, 3000);
         }
 
         function stopAutoSlide() {
             clearInterval(autoSlideInterval);
         }
 
-        // 初始化自动播放
+        // 初始化
         startAutoSlide();
 
-        // 鼠标悬停时停止自动切换
-        document.querySelector('.image-slider').addEventListener('mouseover', stopAutoSlide);
-        document.querySelector('.image-slider').addEventListener('mouseout', startAutoSlide);
+        // 鼠标悬停控制
+        const slider = document.querySelector('.image-slider');
+        slider.addEventListener('mouseover', stopAutoSlide);
+        slider.addEventListener('mouseout', startAutoSlide);
     </script>
 
     <section class="conclusion-section">
