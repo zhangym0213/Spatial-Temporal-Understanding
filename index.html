@@ -263,11 +263,10 @@
             height: 4px;
             background-color: #FFA500;
         }
-        /* 设置问题字体为圆体，并调整大小 */
         /* 居中问题和选项 */
         .quiz-question p {
             font-family: 'Times New Roman', Times, serif; /* 修改字体为 Times New Roman */
-            font-size: 28px; /* 加大字体 */
+            font-size: 20px; /* 加大字体 */
             font-weight: bold; /* 加粗 */
             text-align: center;
             margin-bottom: 20px;
@@ -707,8 +706,8 @@
                 </div>
                 <div class="text-column" style="flex: 2;">
                     <div class="tabs">
-                        <button class="tab-button active" onclick="showTab(0)"><i class="fas fa-rocket"></i> Speed & Acceleration </button>
-                        <button class="tab-button" onclick="showTab(1)"><i class="fa-solid fa-route"></i> Displacement & Path Length </button>
+                        <button class="tab-button active" onclick="showTab(0)"><i class="fa-solid fa-route"></i> Displacement & Path Length</button>
+                        <button class="tab-button" onclick="showTab(1)"><i class="fas fa-rocket"></i> Speed & Acceleration  </button>
                         <button class="tab-button" onclick="showTab(2)"><i class="fas fa-ruler"></i> Dimensional Measurement </button>
                     </div>
                     <div class="tab-content" id="tab-content">
@@ -841,30 +840,29 @@
     // 更新问题和答案数组，移除第四个问题
     const questions = [
         {
-            question: "What is the velocity of the object when t=0s ?",
-            options: ["10 m/s", "20 m/s", "30 m/s", "40 m/s"],
+            question: "From 3.0s to 4.5s.What is the most appropriate length of a silver sedan with tinted windows?",
+            options: ["3.90m","4.30m","5.00m","3.70m"],
             correctAnswer: 1,
-            GroundTruth: "The GroundTruth is 19.2m/s."
+            GroundTruth: "The GroundTruth is 4.34m."
         },
         {
-            question: "What is the distance traveled from t=0s to t=1s?",
-            options: ["50 m", "100 m", "150 m", "200 m"],
-            correctAnswer: 2,
-            GroundTruth: "The GroundTruth is 152m."
-        },
-        {
-            question: "What is the route taken?",
-            options: ["Route A", "Route B", "Route C","Route D"],
+            question: "From 4.1s to 12.5s.What is the most appropriate average speed of the dark SUV partially behind the garage?",
+            options: ["0.0m/s","0.5m/s","1.0m/s","2.0m/s"],
             correctAnswer: 0,
-            GroundTruth: "The correct answer is Route A.",
-            isRouteOrDirection: true
+            GroundTruth: "The GroundTruth is 0.0m/s."
+        },
+        {
+            question: "What is the distance between the camera and the beige minivan with roof rack at t=14.9s?",
+            options: ["24.0m","28.0m","25.0m","26.0m"],
+            correctAnswer: 3,
+            GroundTruth: "The correct answer is 26.06m.",
         }
     ];
 
     // 更新时间点数组，现在只有3个时间点
-    const t1 = 0;
-    const t2 = 5;
-    const t3 = 10;
+    const t1 = 3;
+    const t2 = 4;
+    const t3 = 14;
 
     // 显示 Tab 内容
     function showTab(index) {
