@@ -500,6 +500,72 @@
         .image-container img:hover {
             transform: scale(1.2);
         }
+
+        /* Analysis Section Styles */
+        .analysis-section {
+            background-color: #ffffff;
+            padding: 40px 0;
+            margin: 0; /* Ensure no extra margin */
+        }
+        
+        .analysis-section .container {
+            max-width: 1200px; /* Adjust as needed, match other sections */
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Ensure H2 inherits general styles if not already covered */
+        .analysis-section h2 {
+            font-size: 2.0em;
+            margin-bottom: 20px;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        /* Style the H3 subheadings */
+        .analysis-section h3 {
+            font-size: 1.8em; /* Slightly smaller than h2 */
+            margin-top: 30px; /* Space above subheading */
+            margin-bottom: 15px; /* Space below subheading */
+            font-family: 'Times New Roman', Times, serif;
+            color: #333; /* Match paragraph color or make slightly darker */
+            text-align: left; /* Align subheading left */
+            max-width: 800px; /* Match paragraph width for consistency */
+            margin-left: auto; /* Center the text block */
+            margin-right: auto; /* Center the text block */
+        }
+        
+        /* Ensure paragraphs inherit general styles and center their block */
+        .analysis-section p {
+            font-size: 1.5em;
+            color: #333;
+            text-align: justify; /* Justify text within the block */
+            margin: 0 auto 20px auto; /* Auto margins for centering, 20px bottom margin */
+            max-width: 800px; /* Control width and center */
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        /* Ensure image container in this section is centered and has margin */
+        .analysis-section .image-container {
+            text-align: center; /* Center the image */
+            margin-top: 20px; /* Space above image */
+            margin-bottom: 40px; /* Space below image */
+        }
+        
+        /* Ensure full-width-image class works as expected */
+        .analysis-section .full-width-image {
+            width: 100%;
+            max-width: 800px; /* Optional: Limit max width like paragraphs */
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            display: inline-block; /* Needed for text-align center to work */
+        }
+        
+        /* Optional: Remove bottom margin from the last paragraph in the section */
+        .analysis-section p:last-child {
+            margin-bottom: 0;
+        }
     </style>
 </head>
 <body>
@@ -722,6 +788,34 @@
         </div>
     </section> -->
 
+    <!-- Analysis Section -->
+    <section class="analysis-section">
+        <div class="container">
+            <h2>Analysis</h2>
+            <p>
+                By leveraging the model’s reasoning process and uniformly sampling approximately 200 error records across each task type and scenario, we categorize its errors into three representative patterns, which reflects three core limitations of MLLMs.
+            </p>
+            <div class="image-container">
+                <img src="assets/images/error_pie.jpg" alt="Error Analysis Pie Chart" class="full-width-image">
+            </div>
+
+            <h3>1. Inaccurate Spatial Quantification</h3>
+            <p>
+                Models struggle with accurately estimating spatial properties from visual inputs, including object dimensions, distances, and 3D positions. These issues stem from a lack of clear visual references and the inherent challenge of inferring 3D information from 2D images, affecting all tasks requiring precise spatial measurements.
+            </p>
+
+            <h3>2. Flawed Temporal Dynamics Understanding</h3>
+            <p>
+                Models perform poorly in understanding information that changes over time, struggling to accurately calculate and describe motion characteristics like displacement, speed, and trajectories. They particularly struggle with distinguishing object motion from camera motion, issues stemming from challenges in cross-frame integration and lack of physical models.
+            </p>
+
+            <h3>3. Weak Cross-Modal Integration</h3>
+            <p>
+                Models fail to effectively connect textual instructions with visual content or integrate non-visual data with visual information. This leads to misinterpretation of temporal constraints, improper use of initial conditions, and incorrect associations between structured data and visual elements, affecting all tasks relying on multimodal information.
+            </p>
+        </div>
+    </section>
+    
     <section class="quiz-section">
         <div class="container">
             <h2 class="quiz-section-title">QUIZ</h2>
