@@ -501,7 +501,7 @@
             transform: scale(1.2);
         }
 
-        /* Analysis Section Styles */
+        /* Analysis Section Styles - Revised for Consistency */
         .analysis-section {
             background-color: #ffffff;
             padding: 40px 0;
@@ -509,63 +509,74 @@
         }
         
         .analysis-section .container {
-            max-width: 1200px; /* Adjust as needed, match other sections */
+            max-width: 1200px; /* Standard container width */
             margin: 0 auto;
             padding: 0 20px;
         }
         
-        /* Ensure H2 inherits general styles if not already covered */
+        /* --- Start Revised Rules --- */
+        
+        /* Title styling (ensure it matches other sections) */
         .analysis-section h2 {
             font-size: 2.0em;
-            margin-bottom: 20px;
+            margin-bottom: 20px; /* Matches Abstract/Conclusion h2 */
             text-align: center;
             font-family: 'Times New Roman', Times, serif;
         }
         
-        /* Style the H3 subheadings */
+        /* Sub-heading styling (h3) */
         .analysis-section h3 {
-            font-size: 1.8em; /* Slightly smaller than h2 */
-            margin-top: 30px; /* Space above subheading */
-            margin-bottom: 15px; /* Space below subheading */
+            font-size: 1.8em;
+            color: #333;
             font-family: 'Times New Roman', Times, serif;
-            color: #333; /* Match paragraph color or make slightly darker */
-            text-align: left; /* Align subheading left */
-            max-width: 800px; /* Match paragraph width for consistency */
-            margin-left: auto; /* Center the text block */
-            margin-right: auto; /* Center the text block */
+            text-align: left; /* Align text left within the block */
+            /* --- Width and Centering --- */
+            max-width: 800px; /* Crucial: Matches p width */
+            margin: 30px auto 15px auto; /* Top margin, Auto L/R for centering, Bottom margin */
         }
         
-        /* Ensure paragraphs inherit general styles and center their block */
+        /* Paragraph styling (p) - Make identical to Abstract/Conclusion */
         .analysis-section p {
             font-size: 1.5em;
             color: #333;
-            text-align: justify; /* Justify text within the block */
-            margin: 0 auto 20px auto; /* Auto margins for centering, 20px bottom margin */
-            max-width: 800px; /* Control width and center */
             font-family: 'Times New Roman', Times, serif;
+            text-align: justify; /* Justify text within the block */
+            /* --- Width and Centering --- */
+            max-width: 800px; /* Crucial: Consistent width */
+            margin: 0 auto 20px auto; /* No Top, Auto L/R for centering, Bottom margin */
         }
         
-        /* Ensure image container in this section is centered and has margin */
+        /* Ensure the introductory paragraph also follows this */
+        .analysis-section > .container > p:first-of-type {
+            /* This might need adjustment if it looks odd, but generally should follow the rule above */
+             margin-bottom: 30px; /* Add more space before the image */
+        }
+        
+        
+        /* Image container styling */
         .analysis-section .image-container {
-            text-align: center; /* Center the image */
-            margin-top: 20px; /* Space above image */
+            text-align: center;
+            margin-top: 20px; /* Adjust as needed */
             margin-bottom: 40px; /* Space below image */
         }
         
-        /* Ensure full-width-image class works as expected */
+        /* Image styling */
         .analysis-section .full-width-image {
             width: 100%;
-            max-width: 800px; /* Optional: Limit max width like paragraphs */
+            /* --- Width Control for Image --- */
+            max-width: 800px; /* Make image width consistent with text block */
             height: auto;
             border: 1px solid #ddd;
             border-radius: 8px;
-            display: inline-block; /* Needed for text-align center to work */
+            display: inline-block; /* For centering via text-align */
         }
         
-        /* Optional: Remove bottom margin from the last paragraph in the section */
-        .analysis-section p:last-child {
+        /* Remove bottom margin from the very last paragraph in the section */
+        .analysis-section > .container > p:last-of-type {
             margin-bottom: 0;
         }
+        
+        /* --- End Revised Rules --- */
     </style>
 </head>
 <body>
